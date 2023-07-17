@@ -6,6 +6,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 final _controller = PageController();
 
+List<String> list = ["first text", "second text", "third text"];
+
 class homepage extends StatefulWidget {
   const homepage({super.key});
 
@@ -356,7 +358,7 @@ class homepageState extends State<homepage> {
                           ]),
                     ), //2 box
                     Container(
-                      //e-mading - selengkapnya
+                      //Mata Pelajaran - selengkapnya
                       margin: EdgeInsets.only(left: 30, right: 30),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -377,6 +379,341 @@ class homepageState extends State<homepage> {
                           ] //Mata Pelajaran - selengkapnya children
                           ),
                     ),
+                    Container(
+                      // Mata Pelajaran pertama
+
+                      margin: EdgeInsets.only(left: 30, right: 30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 0),
+                            child: InkWell(
+                                //Mata Pelajaran
+                                onTap: () {},
+                                child: Card(
+                                  child: Container(
+                                      color: Colors.black.withOpacity(0.05),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              child: Row(
+                                                children: [
+                                                  Card(
+                                                      color: Color(0xffff5e48),
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8),
+                                                      ),
+                                                      child: Container(
+                                                          height: 43.5,
+                                                          width: 43.5,
+                                                          child: Image.asset(
+                                                              'assets/math.png'))),
+                                                  Container(
+                                                    margin: EdgeInsets.only(
+                                                        left: 12),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          'Matematika',
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                        Text('Jane Doe S. pd.')
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    margin: EdgeInsets.only(
+                                                        left: 120),
+                                                    child: Image.asset(
+                                                      'assets/Vector.png',
+                                                      height: 9,
+                                                      fit: BoxFit.fill,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                            //Image
+                                          ],
+                                        ),
+                                      )),
+                                )),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      // Mata Pelajaran Kedua
+
+                      margin: EdgeInsets.only(left: 30, right: 30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 8),
+                            child: InkWell(
+                                //Mata Pelajaran
+                                onTap: () {},
+                                child: Card(
+                                  child: Container(
+                                      color: Colors.black.withOpacity(0.05),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              child: Row(
+                                                children: [
+                                                  Card(
+                                                      color: Color(0xff7C87F3),
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8),
+                                                      ),
+                                                      child: Container(
+                                                          height: 43.5,
+                                                          width: 43.5,
+                                                          child: Center(
+                                                              child: Text(
+                                                            'En',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          )))),
+                                                  Container(
+                                                    margin: EdgeInsets.only(
+                                                        left: 12),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          'Bhs. Inggris',
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                        Text('Jane Doe S. pd.')
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    margin: EdgeInsets.only(
+                                                        left: 120),
+                                                    child: Image.asset(
+                                                      'assets/Vector.png',
+                                                      height: 9,
+                                                      fit: BoxFit.fill,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                            //Image
+                                          ],
+                                        ),
+                                      )),
+                                )),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      // mata Pelajaran Ketiga
+                      margin: EdgeInsets.only(left: 30, right: 30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 8),
+                            child: InkWell(
+                                //Mata Pelajaran
+                                onTap: () {},
+                                child: Card(
+                                  child: Container(
+                                      color: Colors.black.withOpacity(0.05),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(12),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              child: Row(
+                                                children: [
+                                                  Card(
+                                                      color: Color(0xff94B147),
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8),
+                                                      ),
+                                                      child: Container(
+                                                          height: 43.5,
+                                                          width: 43.5,
+                                                          child: Image.asset(
+                                                              'assets/tree.png'))),
+                                                  Container(
+                                                    margin: EdgeInsets.only(
+                                                        left: 12),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          'Biologi',
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                        Text('John Doe S. pd.')
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    margin: EdgeInsets.only(
+                                                        left: 120),
+                                                    child: Image.asset(
+                                                      'assets/Vector.png',
+                                                      height: 9,
+                                                      fit: BoxFit.fill,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                            //Image
+                                          ],
+                                        ),
+                                      )),
+                                )),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      //e-mading - selengkapnya
+                      margin: EdgeInsets.only(left: 30, right: 30),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            //Mata Pelajaran - selengkapnya
+                            Text(
+                              'tugas Hari ini',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  'Selengkapnya >',
+                                  style: TextStyle(
+                                      fontSize: 14, color: Color(0xff5864D3)),
+                                ))
+                          ] //Mata Pelajaran - selengkapnya children
+                          ),
+                    ),
+                    Container(
+                      // Tugas Hari ini
+                      margin: EdgeInsets.only(left: 30, right: 30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 8),
+                            child: InkWell(
+                                //Mata Pelajaran
+                                onTap: () {},
+                                child: Card(
+                                  child: Container(
+                                      color: Colors.black.withOpacity(0.05),
+                                      child: Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(12, 12, 12, 30),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(children: [
+                                              Card(
+                                                  color: Color(0xff94B147),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                  ),
+                                                  child: Container(
+                                                      height: 43.5,
+                                                      width: 43.5,
+                                                      child: Image.asset(
+                                                          'assets/tree.png'))),
+                                              Container(
+                                                margin:
+                                                    EdgeInsets.only(left: 12),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      'Biologi',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    Text(
+                                                        'Tenggat : 27 Des 2022')
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                margin:
+                                                    EdgeInsets.only(left: 77),
+                                                child: Image.asset(
+                                                  'assets/Vector.png',
+                                                  height: 9,
+                                                  fit: BoxFit.fill,
+                                                ),
+                                              ),
+                                            ]),
+                                            Divider(
+                                              color: Colors.black,
+                                            ),
+                                            // Call List String #######################
+                                            Text(
+                                              '- Merangkum Materi di Bab 4',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              '- Tugas Essay',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
+                                        ),
+                                      )),
+                                )),
+                          ),
+                        ],
+                      ),
+                    )
                   ], // CONTENT CHILDREN
                 ),
               ) //CONTENT CONTAINER
