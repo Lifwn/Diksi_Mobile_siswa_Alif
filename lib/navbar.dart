@@ -41,18 +41,26 @@ class _navbarState extends State<navbar> {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       currentIndex: _currentIndex,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       onTap: _onTabSelected,
       items: [
         BottomNavigationBarItem(
-          icon: SvgPicture.asset('assets/vector/element.svg'),
+          icon: SvgPicture.asset(_currentIndex == 0
+              ? 'assets/vector/element.svg'
+              : 'assets/vector/element-unchoosen.svg'),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset('assets/vector/Frame.svg'),
+          icon: SvgPicture.asset(_currentIndex == 1
+              ? 'assets/vector/note.svg'
+              : 'assets/vector/note-unchoosen.svg'),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: SvgPicture.asset('assets/vector/note.svg'),
+          icon: SvgPicture.asset(_currentIndex == 2
+              ? 'assets/vector/Frame.svg'
+              : 'assets/vector/Frame-unchoosen.svg'),
           label: '',
         ),
         BottomNavigationBarItem(

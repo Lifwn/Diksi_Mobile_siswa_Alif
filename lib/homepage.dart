@@ -1,13 +1,12 @@
-import 'package:first_app/navbar.dart';
-import 'package:first_app/pagec1.dart';
 import 'package:flutter/material.dart';
+import 'package:first_app/navbar.dart';
+import 'package:first_app/sidebar.dart';
+import 'package:first_app/pagec1.dart';
 import 'package:first_app/loginpage.dart';
 import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 final _controller = PageController();
-
-List<String> list = ["first text", "second text", "third text"];
 
 class homepage extends StatefulWidget {
   const homepage({super.key});
@@ -17,9 +16,14 @@ class homepage extends StatefulWidget {
 }
 
 class homepageState extends State<homepage> {
+  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _globalKey,
+      // appBar: AppBar(),
+      drawer: sidebar(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
           child: Container(
@@ -35,13 +39,21 @@ class homepageState extends State<homepage> {
                     ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 50, right: 50, top: 20),
+                margin: EdgeInsets.only(left: 30, right: 30, top: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Container(
-                      child: Image.asset('assets/menu.png'),
+                    SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: IconButton(
+                          splashRadius: 24,
+                          icon: Icon(Icons.menu),
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
+                            _globalKey.currentState?.openDrawer();
+                          }),
                     ),
                     Container(
                         child: CircleAvatar(
@@ -188,174 +200,214 @@ class homepageState extends State<homepage> {
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              margin: EdgeInsets.only(left: 30),
-                              //container Area Kiri
-                              child: Column(
-                                children: [
-                                  Card(
-                                    //box kiri
-                                    color: Color(0xffff5e48),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Container(
-                                      height: 132,
-                                      width: 148,
-                                      child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.only(
-                                                  left: 16, top: 16),
-                                              child: Image.asset(
-                                                'assets/math.png',
-                                                width: 24,
-                                                height: 24,
-                                                fit: BoxFit.fill,
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(
-                                                  top: 37, left: 16),
-                                              child: Text(
-                                                'Matematika',
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(left: 16),
-                                              child: Text(
-                                                'Jane Doe S. pd.',
-                                                style: TextStyle(
-                                                  color: Colors.white
-                                                      .withOpacity(0.5),
+                            InkWell(
+                              onTap: () {
+                                final snackBar = SnackBar(
+                                  content: const Text('Yay! A SnackBar!'),
+                                  action: SnackBarAction(
+                                    label: 'Undo',
+                                    onPressed: () {
+                                      // Some code to undo the change.
+                                    },
+                                  ),
+                                );
+
+                                // Find the ScaffoldMessenger in the widget tree
+                                // and use it to show a SnackBar.
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              },
+                              child: Container(
+                                //container Area Kiri
+                                margin: EdgeInsets.only(left: 30),
+
+                                child: Column(
+                                  children: [
+                                    Card(
+                                      //box kiri
+                                      color: Color(0xffff5e48),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Container(
+                                        height: 132,
+                                        width: 148,
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                    left: 16, top: 16),
+                                                child: Image.asset(
+                                                  'assets/math.png',
+                                                  width: 24,
+                                                  height: 24,
+                                                  fit: BoxFit.fill,
                                                 ),
                                               ),
-                                            )
-                                          ]),
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                    top: 37, left: 16),
+                                                child: Text(
+                                                  'Matematika',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                              Container(
+                                                margin:
+                                                    EdgeInsets.only(left: 16),
+                                                child: Text(
+                                                  'Jane Doe S. pd.',
+                                                  style: TextStyle(
+                                                    color: Colors.white
+                                                        .withOpacity(0.5),
+                                                  ),
+                                                ),
+                                              )
+                                            ]),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    //deskripsi
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Senin, 3 Desember',
-                                          style: TextStyle(
-                                              color: Colors.black
-                                                  .withOpacity(0.25)),
-                                        ),
-                                        Text(
-                                          'Mempelajari Tenta...',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          '2 Jam Pelajaran',
-                                          style: TextStyle(
-                                              color: Colors.black
-                                                  .withOpacity(0.25)),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ],
+                                    Container(
+                                      //deskripsi
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Senin, 3 Desember',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.25)),
+                                          ),
+                                          Text(
+                                            'Mempelajari Tenta...',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(
+                                            '2 Jam Pelajaran',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.25)),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(right: 30),
-                              //container Area Kanan
-                              child: Column(
-                                children: [
-                                  Card(
-                                    //box kiri
-                                    color: Color(0xff94B147),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Container(
-                                      height: 132,
-                                      width: 148,
-                                      child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              margin: EdgeInsets.only(
-                                                  left: 16, top: 16),
-                                              child: Image.asset(
-                                                'assets/tree.png',
-                                                width: 24,
-                                                height: 24,
-                                                fit: BoxFit.fill,
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(
-                                                  top: 37, left: 16),
-                                              child: Text(
-                                                'Biologi',
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(left: 16),
-                                              child: Text(
-                                                'John Doe S. pd.',
-                                                style: TextStyle(
-                                                  color: Colors.white
-                                                      .withOpacity(0.5),
+                            InkWell(
+                              onTap: () {
+                                final snackBar = SnackBar(
+                                  content: const Text('Yay! A SnackBar!'),
+                                  action: SnackBarAction(
+                                    label: 'Undo',
+                                    onPressed: () {
+                                      // Some code to undo the change.
+                                    },
+                                  ),
+                                );
+
+                                // Find the ScaffoldMessenger in the widget tree
+                                // and use it to show a SnackBar.
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              },
+                              child: Container(
+                                //container Area Kanan
+                                margin: EdgeInsets.only(right: 30),
+
+                                child: Column(
+                                  children: [
+                                    Card(
+                                      //box kiri
+                                      color: Color(0xff94B147),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Container(
+                                        height: 132,
+                                        width: 148,
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                    left: 16, top: 16),
+                                                child: Image.asset(
+                                                  'assets/tree.png',
+                                                  width: 24,
+                                                  height: 24,
+                                                  fit: BoxFit.fill,
                                                 ),
                                               ),
-                                            )
-                                          ]),
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                    top: 37, left: 16),
+                                                child: Text(
+                                                  'Biologi',
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                              Container(
+                                                margin:
+                                                    EdgeInsets.only(left: 16),
+                                                child: Text(
+                                                  'John Doe S. pd.',
+                                                  style: TextStyle(
+                                                    color: Colors.white
+                                                        .withOpacity(0.5),
+                                                  ),
+                                                ),
+                                              )
+                                            ]),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    //deskripsi
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Senin, 3 Desember',
-                                          style: TextStyle(
-                                              color: Colors.black
-                                                  .withOpacity(0.25)),
-                                        ),
-                                        Text(
-                                          'Ulangan Fotosint...',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Text(
-                                          '2 Jam Pelajaran',
-                                          style: TextStyle(
-                                              color: Colors.black
-                                                  .withOpacity(0.25)),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ],
+                                    Container(
+                                      //deskripsi
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Senin, 3 Desember',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.25)),
+                                          ),
+                                          Text(
+                                            'Ulangan Fotosint...',
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(
+                                            '2 Jam Pelajaran',
+                                            style: TextStyle(
+                                                color: Colors.black
+                                                    .withOpacity(0.25)),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                            )
+                            ),
                           ]),
                     ), //2 box
                     Container(
@@ -391,7 +443,22 @@ class homepageState extends State<homepage> {
                             margin: EdgeInsets.only(top: 0),
                             child: InkWell(
                                 //Mata Pelajaran
-                                onTap: () {},
+                                onTap: () {
+                                  final snackBar = SnackBar(
+                                    content: const Text('Yay! A SnackBar!'),
+                                    action: SnackBarAction(
+                                      label: 'Undo',
+                                      onPressed: () {
+                                        // Some code to undo the change.
+                                      },
+                                    ),
+                                  );
+
+                                  // Find the ScaffoldMessenger in the widget tree
+                                  // and use it to show a SnackBar.
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                },
                                 child: Card(
                                   child: Container(
                                       color: Colors.black.withOpacity(0.05),
@@ -466,7 +533,22 @@ class homepageState extends State<homepage> {
                             margin: EdgeInsets.only(top: 8),
                             child: InkWell(
                                 //Mata Pelajaran
-                                onTap: () {},
+                                onTap: () {
+                                  final snackBar = SnackBar(
+                                    content: const Text('Yay! A SnackBar!'),
+                                    action: SnackBarAction(
+                                      label: 'Undo',
+                                      onPressed: () {
+                                        // Some code to undo the change.
+                                      },
+                                    ),
+                                  );
+
+                                  // Find the ScaffoldMessenger in the widget tree
+                                  // and use it to show a SnackBar.
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                },
                                 child: Card(
                                   child: Container(
                                       color: Colors.black.withOpacity(0.05),
@@ -545,7 +627,22 @@ class homepageState extends State<homepage> {
                             margin: EdgeInsets.only(top: 8),
                             child: InkWell(
                                 //Mata Pelajaran
-                                onTap: () {},
+                                onTap: () {
+                                  final snackBar = SnackBar(
+                                    content: const Text('Yay! A SnackBar!'),
+                                    action: SnackBarAction(
+                                      label: 'Undo',
+                                      onPressed: () {
+                                        // Some code to undo the change.
+                                      },
+                                    ),
+                                  );
+
+                                  // Find the ScaffoldMessenger in the widget tree
+                                  // and use it to show a SnackBar.
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                },
                                 child: Card(
                                   child: Container(
                                       color: Colors.black.withOpacity(0.05),
@@ -617,7 +714,7 @@ class homepageState extends State<homepage> {
                           children: [
                             //Mata Pelajaran - selengkapnya
                             Text(
-                              'tugas Hari ini',
+                              'Tugas Hari ini',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
@@ -641,7 +738,22 @@ class homepageState extends State<homepage> {
                             margin: EdgeInsets.only(top: 8),
                             child: InkWell(
                                 //Mata Pelajaran
-                                onTap: () {},
+                                onTap: () {
+                                  final snackBar = SnackBar(
+                                    content: const Text('Yay! A SnackBar!'),
+                                    action: SnackBarAction(
+                                      label: 'Undo',
+                                      onPressed: () {
+                                        // Some code to undo the change.
+                                      },
+                                    ),
+                                  );
+
+                                  // Find the ScaffoldMessenger in the widget tree
+                                  // and use it to show a SnackBar.
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                },
                                 child: Card(
                                   child: Container(
                                       color: Colors.black.withOpacity(0.05),
