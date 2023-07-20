@@ -1,3 +1,4 @@
+import 'package:first_app/navbar.dart';
 import 'package:first_app/pagec1.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/loginpage.dart';
@@ -719,6 +720,7 @@ class homepageState extends State<homepage> {
               ) //CONTENT CONTAINER
             ]),
       )),
+      bottomNavigationBar: navbar(),
     );
   }
 }
