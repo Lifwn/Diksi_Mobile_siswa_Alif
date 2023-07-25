@@ -1,3 +1,5 @@
+import 'package:first_app/jadwalkbm.dart';
+import 'package:first_app/ujian.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/homepage.dart';
 import 'package:flutter_svg/svg.dart';
@@ -40,7 +42,12 @@ class sidebar extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => homepage()),
+                    );
+                  },
                   child: Container(
                     child: Row(children: [
                       Container(
@@ -60,7 +67,12 @@ class sidebar extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => jadwalkbm()),
+                    );
+                  },
                   child: Container(
                     child: Row(children: [
                       Container(
@@ -119,7 +131,12 @@ class sidebar extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ujian()),
+                    );
+                  },
                   child: Container(
                     child: Row(children: [
                       Container(

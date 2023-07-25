@@ -1,10 +1,15 @@
+import 'package:first_app/jadwalkbm.dart';
+import 'package:first_app/widget/link.dart';
+import 'package:first_app/widget/mapelhome.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/navbar.dart';
 import 'package:first_app/sidebar.dart';
 import 'package:first_app/pagec1.dart';
-import 'package:first_app/loginpage.dart';
 import 'package:flutter/services.dart';
+import 'package:first_app/matematika.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'widget/template_box.dart';
 
 final _controller = PageController();
 
@@ -107,27 +112,10 @@ class homepageState extends State<homepage> {
                 child: Column(
                   children: [
                     //CONTENT CHILDREN
-                    Container(
-                      //e-mading - selengkapnya
-                      margin: EdgeInsets.only(left: 30, right: 30),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            //e-mading - selengkapnya
-                            Text(
-                              'e-Mading',
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
-                            TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Selengkapnya >',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Color(0xff5864D3)),
-                                ))
-                          ] //e-mading - selengkapnya children
-                          ),
+                    link(
+                      // e-mading - selengkapnya
+                      text: "e-Mading",
+                      route: () {},
                     ),
                     Container(
                       //CONTAINER CAROUSEL
@@ -172,36 +160,33 @@ class homepageState extends State<homepage> {
                       ] //children
                           ),
                     ), //CONTAINER CAROUSEL
-                    Container(
-                      //e-mading - selengkapnya
-                      margin: EdgeInsets.only(left: 30, right: 30),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            //Jadwal hari Ini - selengkapnya
-                            Text(
-                              'Jadwal Hari Ini',
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
-                            TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Selengkapnya >',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Color(0xff5864D3)),
-                                ))
-                          ] //Jadwal Hari Ini - selengkapnya children
-                          ),
+                    link(
+                      // jadwal hari ini - selengkapnya
+                      text: "Jadwal Hari Ini",
+                      route: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => jadwalkbm()),
+                        );
+                      },
                     ),
+
                     Container(
                       //Container 2 BOX
                       margin: EdgeInsets.only(top: 0),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            InkWell(
-                              onTap: () {
+                            TemplateBox(
+                              colorBox: Color(0xffff5e48),
+                              margin: EdgeInsets.only(left: 30),
+                              imgPath: "assets/math.png",
+                              title: "Matematika",
+                              teacher: "Jane Doe S.Pd.",
+                              date: "Senin 3 Desember",
+                              desc: "Mempelajari Tenta...",
+                              time: "2 Jam Pelajaran",
+                              ontap: () {
                                 final snackBar = SnackBar(
                                   content: const Text('Yay! A SnackBar!'),
                                   action: SnackBarAction(
@@ -211,103 +196,22 @@ class homepageState extends State<homepage> {
                                     },
                                   ),
                                 );
-
-                                // Find the ScaffoldMessenger in the widget tree
-                                // and use it to show a SnackBar.
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(snackBar);
                               },
-                              child: Container(
-                                //container Area Kiri
-                                margin: EdgeInsets.only(left: 30),
-
-                                child: Column(
-                                  children: [
-                                    Card(
-                                      //box kiri
-                                      color: Color(0xffff5e48),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child: Container(
-                                        height: 132,
-                                        width: 148,
-                                        child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                margin: EdgeInsets.only(
-                                                    left: 16, top: 16),
-                                                child: Image.asset(
-                                                  'assets/math.png',
-                                                  width: 24,
-                                                  height: 24,
-                                                  fit: BoxFit.fill,
-                                                ),
-                                              ),
-                                              Container(
-                                                margin: EdgeInsets.only(
-                                                    top: 37, left: 16),
-                                                child: Text(
-                                                  'Matematika',
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                              ),
-                                              Container(
-                                                margin:
-                                                    EdgeInsets.only(left: 16),
-                                                child: Text(
-                                                  'Jane Doe S. pd.',
-                                                  style: TextStyle(
-                                                    color: Colors.white
-                                                        .withOpacity(0.5),
-                                                  ),
-                                                ),
-                                              )
-                                            ]),
-                                      ),
-                                    ),
-                                    Container(
-                                      //deskripsi
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Senin, 3 Desember',
-                                            style: TextStyle(
-                                                color: Colors.black
-                                                    .withOpacity(0.25)),
-                                          ),
-                                          Text(
-                                            'Mempelajari Tenta...',
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            '2 Jam Pelajaran',
-                                            style: TextStyle(
-                                                color: Colors.black
-                                                    .withOpacity(0.25)),
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
                             ),
-                            InkWell(
-                              onTap: () {
+                            TemplateBox(
+                              colorBox: Color(0xff94B147),
+                              margin: EdgeInsets.only(right: 30),
+                              imgPath: "assets/tree.png",
+                              title: "Biologi",
+                              teacher: "John Doe S.Pd.",
+                              date: "Senin 3 Desember",
+                              desc: "Ulangan Fotosint...",
+                              time: "2 Jam Pelajaran",
+                              ontap: () {
                                 final snackBar = SnackBar(
-                                  content: const Text('Yay! A SnackBar!'),
+                                  content: const Text('Yay! A SnackBa!'),
                                   action: SnackBarAction(
                                     label: 'Undo',
                                     onPressed: () {
@@ -315,212 +219,28 @@ class homepageState extends State<homepage> {
                                     },
                                   ),
                                 );
-
-                                // Find the ScaffoldMessenger in the widget tree
-                                // and use it to show a SnackBar.
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(snackBar);
                               },
-                              child: Container(
-                                //container Area Kanan
-                                margin: EdgeInsets.only(right: 30),
-
-                                child: Column(
-                                  children: [
-                                    Card(
-                                      //box kiri
-                                      color: Color(0xff94B147),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child: Container(
-                                        height: 132,
-                                        width: 148,
-                                        child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                margin: EdgeInsets.only(
-                                                    left: 16, top: 16),
-                                                child: Image.asset(
-                                                  'assets/tree.png',
-                                                  width: 24,
-                                                  height: 24,
-                                                  fit: BoxFit.fill,
-                                                ),
-                                              ),
-                                              Container(
-                                                margin: EdgeInsets.only(
-                                                    top: 37, left: 16),
-                                                child: Text(
-                                                  'Biologi',
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                              ),
-                                              Container(
-                                                margin:
-                                                    EdgeInsets.only(left: 16),
-                                                child: Text(
-                                                  'John Doe S. pd.',
-                                                  style: TextStyle(
-                                                    color: Colors.white
-                                                        .withOpacity(0.5),
-                                                  ),
-                                                ),
-                                              )
-                                            ]),
-                                      ),
-                                    ),
-                                    Container(
-                                      //deskripsi
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Senin, 3 Desember',
-                                            style: TextStyle(
-                                                color: Colors.black
-                                                    .withOpacity(0.25)),
-                                          ),
-                                          Text(
-                                            'Ulangan Fotosint...',
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            '2 Jam Pelajaran',
-                                            style: TextStyle(
-                                                color: Colors.black
-                                                    .withOpacity(0.25)),
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
+                            )
                           ]),
                     ), //2 box
-                    Container(
-                      //Mata Pelajaran - selengkapnya
-                      margin: EdgeInsets.only(left: 30, right: 30),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            //Mata Pelajaran - selengkapnya
-                            Text(
-                              'Mata Pelajaran',
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
-                            TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Selengkapnya >',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Color(0xff5864D3)),
-                                ))
-                          ] //Mata Pelajaran - selengkapnya children
-                          ),
+                    link(
+                      // mata pelajaran - selengkapnya
+                      text: "Mata Pelajaran",
+                      route: () {},
                     ),
-                    Container(
-                      // Mata Pelajaran pertama
-
-                      margin: EdgeInsets.only(left: 30, right: 30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(top: 0),
-                            child: InkWell(
-                                //Mata Pelajaran
-                                onTap: () {
-                                  final snackBar = SnackBar(
-                                    content: const Text('Yay! A SnackBar!'),
-                                    action: SnackBarAction(
-                                      label: 'Undo',
-                                      onPressed: () {
-                                        // Some code to undo the change.
-                                      },
-                                    ),
-                                  );
-
-                                  // Find the ScaffoldMessenger in the widget tree
-                                  // and use it to show a SnackBar.
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
-                                },
-                                child: Card(
-                                  child: Container(
-                                      color: Colors.black.withOpacity(0.05),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(12),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              child: Row(
-                                                children: [
-                                                  Card(
-                                                      color: Color(0xffff5e48),
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8),
-                                                      ),
-                                                      child: Container(
-                                                          height: 43.5,
-                                                          width: 43.5,
-                                                          child: Image.asset(
-                                                              'assets/math.png'))),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                        left: 12),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          'Matematika',
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                        Text('Jane Doe S. pd.')
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                        left: 120),
-                                                    child: Image.asset(
-                                                      'assets/Vector.png',
-                                                      height: 9,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            )
-                                            //Image
-                                          ],
-                                        ),
-                                      )),
-                                )),
-                          ),
-                        ],
-                      ),
+                    mapelhome(
+                      imgpath: "assets/math.png",
+                      colorbox: Color(0xffff5e48),
+                      title: "Matematika",
+                      teacher: "Jane Doe S. Pd.",
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => matematika()),
+                        );
+                      },
                     ),
                     Container(
                       // Mata Pelajaran Kedua
@@ -617,116 +337,27 @@ class homepageState extends State<homepage> {
                         ],
                       ),
                     ),
-                    Container(
-                      // mata Pelajaran Ketiga
-                      margin: EdgeInsets.only(left: 30, right: 30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(top: 8),
-                            child: InkWell(
-                                //Mata Pelajaran
-                                onTap: () {
-                                  final snackBar = SnackBar(
-                                    content: const Text('Yay! A SnackBar!'),
-                                    action: SnackBarAction(
-                                      label: 'Undo',
-                                      onPressed: () {
-                                        // Some code to undo the change.
-                                      },
-                                    ),
-                                  );
-
-                                  // Find the ScaffoldMessenger in the widget tree
-                                  // and use it to show a SnackBar.
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
-                                },
-                                child: Card(
-                                  child: Container(
-                                      color: Colors.black.withOpacity(0.05),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(12),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              child: Row(
-                                                children: [
-                                                  Card(
-                                                      color: Color(0xff94B147),
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8),
-                                                      ),
-                                                      child: Container(
-                                                          height: 43.5,
-                                                          width: 43.5,
-                                                          child: Image.asset(
-                                                              'assets/tree.png'))),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                        left: 12),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          'Biologi',
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                        Text('John Doe S. pd.')
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                        left: 120),
-                                                    child: Image.asset(
-                                                      'assets/Vector.png',
-                                                      height: 9,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            )
-                                            //Image
-                                          ],
-                                        ),
-                                      )),
-                                )),
+                    mapelhome(
+                      imgpath: "assets/tree.png",
+                      colorbox: Color(0xff94B147),
+                      title: "Biologi",
+                      teacher: "John Doe S. Pd.",
+                      onTap: () {
+                        final snackBar = SnackBar(
+                          content: const Text('Yay! A SnackBar!'),
+                          action: SnackBarAction(
+                            label: 'Undo',
+                            onPressed: () {},
                           ),
-                        ],
-                      ),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      },
                     ),
-                    Container(
-                      //e-mading - selengkapnya
-                      margin: EdgeInsets.only(left: 30, right: 30),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            //Mata Pelajaran - selengkapnya
-                            Text(
-                              'Tugas Hari ini',
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            ),
-                            TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Selengkapnya >',
-                                  style: TextStyle(
-                                      fontSize: 14, color: Color(0xff5864D3)),
-                                ))
-                          ] //Mata Pelajaran - selengkapnya children
-                          ),
+
+                    link(
+                      // tugas hari ini - selengkapnya
+                      text: "Tugas Hari ini",
+                      route: () {},
                     ),
                     Container(
                       // Tugas Hari ini
