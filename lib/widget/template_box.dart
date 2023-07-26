@@ -38,7 +38,7 @@ class TemplateBox extends StatelessWidget {
         child: Column(
           children: [
             Card(
-              //box kiri
+              //box
               color: colorBox,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),

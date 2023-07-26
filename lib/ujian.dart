@@ -1,3 +1,5 @@
+import 'package:first_app/biologiujian.dart';
+import 'package:first_app/matematikaujian.dart';
 import 'package:first_app/navbar.dart';
 import 'package:first_app/sidebar.dart';
 import 'package:first_app/widget/mapelujian.dart';
@@ -181,6 +183,12 @@ class _chipsState extends State<chips> {
                 point1: " -  Aritmatika",
                 point2: " -  Bangun Datar",
                 point3: " - Logaritma dalam Pemecahan Sehari Hari",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => matematikaujian()),
+                  );
+                },
               ),
               mapelujian(
                 colorbox: Color(0xff94B147),
@@ -190,6 +198,12 @@ class _chipsState extends State<chips> {
                 time: "09.00 - 10.30",
                 point1: " - Fotosintesis",
                 point2: " - Sel Tumbuhan dan Hewan",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => biologiujian()),
+                  );
+                },
               ),
               mapelujian(
                 imgPath: "assets/english.svg",

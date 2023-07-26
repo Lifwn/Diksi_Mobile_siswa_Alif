@@ -1,0 +1,22 @@
+super.key,
+    this.imgPath = "",
+    this.desc = "",
+    this.jumlahsoal = "",
+    this.onTap,
+    this.teacher = "",
+    this.time = "",
+    this.title = "",
+    this.totaltime = "",
+
+
+
+
+
+String imgPath;
+String title;
+String teacher;
+String desc;
+String jumlahsoal;
+String time;
+String totaltime;
+VoidCallback? onTap;
