@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class mapelhome extends StatelessWidget {
   mapelhome({
@@ -49,7 +50,7 @@ class mapelhome extends StatelessWidget {
                                       child: Container(
                                           height: 43.5,
                                           width: 43.5,
-                                          child: Image.asset(imgpath))),
+                                          child: SvgPicture.asset(imgpath))),
                                   Container(
                                     margin: EdgeInsets.only(left: 12),
                                     child: Column(

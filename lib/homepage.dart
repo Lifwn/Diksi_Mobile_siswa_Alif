@@ -1,3 +1,4 @@
+import 'package:first_app/english.dart';
 import 'package:first_app/jadwalkbm.dart';
 import 'package:first_app/widget/link.dart';
 import 'package:first_app/widget/mapelhome.dart';
@@ -231,7 +232,7 @@ class homepageState extends State<homepage> {
                       route: () {},
                     ),
                     mapelhome(
-                      imgpath: "assets/math.png",
+                      imgpath: "assets/math.svg",
                       colorbox: Color(0xffff5e48),
                       title: "Matematika",
                       teacher: "Jane Doe S. Pd.",
@@ -242,103 +243,116 @@ class homepageState extends State<homepage> {
                         );
                       },
                     ),
-                    Container(
-                      // Mata Pelajaran Kedua
-
-                      margin: EdgeInsets.only(left: 30, right: 30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(top: 8),
-                            child: InkWell(
-                                //Mata Pelajaran
-                                onTap: () {
-                                  final snackBar = SnackBar(
-                                    content: const Text('Yay! A SnackBar!'),
-                                    action: SnackBarAction(
-                                      label: 'Undo',
-                                      onPressed: () {
-                                        // Some code to undo the change.
-                                      },
-                                    ),
-                                  );
-
-                                  // Find the ScaffoldMessenger in the widget tree
-                                  // and use it to show a SnackBar.
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
-                                },
-                                child: Card(
-                                  child: Container(
-                                      color: Colors.black.withOpacity(0.05),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(12),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              child: Row(
-                                                children: [
-                                                  Card(
-                                                      color: Color(0xff7C87F3),
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8),
-                                                      ),
-                                                      child: Container(
-                                                          height: 43.5,
-                                                          width: 43.5,
-                                                          child: Center(
-                                                              child: Text(
-                                                            'En',
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .white),
-                                                          )))),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                        left: 12),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          'Bhs. Inggris',
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                        Text('Jane Doe S. pd.')
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    margin: EdgeInsets.only(
-                                                        left: 120),
-                                                    child: Image.asset(
-                                                      'assets/Vector.png',
-                                                      height: 9,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            )
-                                            //Image
-                                          ],
-                                        ),
-                                      )),
-                                )),
-                          ),
-                        ],
-                      ),
-                    ),
                     mapelhome(
-                      imgpath: "assets/tree.png",
+                      imgpath: "assets/english.svg",
+                      colorbox: Color(0xff7C87F3),
+                      title: "Bhs. Inggris",
+                      teacher: "Jane Doe S. Pd.",
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => english()),
+                        );
+                      },
+                    ),
+
+                    // Container(
+                    //   // Mata Pelajaran Kedua
+
+                    //   margin: EdgeInsets.only(left: 30, right: 30),
+                    //   child: Column(
+                    //     mainAxisAlignment: MainAxisAlignment.start,
+                    //     children: [
+                    //       Container(
+                    //         margin: EdgeInsets.only(top: 8),
+                    //         child: InkWell(
+                    //             //Mata Pelajaran
+                    //             onTap: () {
+                    //               final snackBar = SnackBar(
+                    //                 content: const Text('Yay! A SnackBar!'),
+                    //                 action: SnackBarAction(
+                    //                   label: 'Undo',
+                    //                   onPressed: () {
+                    //                     // Some code to undo the change.
+                    //                   },
+                    //                 ),
+                    //               );
+
+                    //               // Find the ScaffoldMessenger in the widget tree
+                    //               // and use it to show a SnackBar.
+                    //               ScaffoldMessenger.of(context)
+                    //                   .showSnackBar(snackBar);
+                    //             },
+                    //             child: Card(
+                    //               child: Container(
+                    //                   color: Colors.black.withOpacity(0.05),
+                    //                   child: Padding(
+                    //                     padding: EdgeInsets.all(12),
+                    //                     child: Row(
+                    //                       children: [
+                    //                         Container(
+                    //                           child: Row(
+                    //                             children: [
+                    //                               Card(
+                    //                                   color: Color(0xff7C87F3),
+                    //                                   shape:
+                    //                                       RoundedRectangleBorder(
+                    //                                     borderRadius:
+                    //                                         BorderRadius
+                    //                                             .circular(8),
+                    //                                   ),
+                    //                                   child: Container(
+                    //                                       height: 43.5,
+                    //                                       width: 43.5,
+                    //                                       child: Center(
+                    //                                           child: Text(
+                    //                                         'En',
+                    //                                         style: TextStyle(
+                    //                                             color: Colors
+                    //                                                 .white),
+                    //                                       )))),
+                    //                               Container(
+                    //                                 margin: EdgeInsets.only(
+                    //                                     left: 12),
+                    //                                 child: Column(
+                    //                                   crossAxisAlignment:
+                    //                                       CrossAxisAlignment
+                    //                                           .start,
+                    //                                   children: [
+                    //                                     Text(
+                    //                                       'Bhs. Inggris',
+                    //                                       style: TextStyle(
+                    //                                           fontWeight:
+                    //                                               FontWeight
+                    //                                                   .bold),
+                    //                                     ),
+                    //                                     Text('Jane Doe S. pd.')
+                    //                                   ],
+                    //                                 ),
+                    //                               ),
+                    //                               Container(
+                    //                                 margin: EdgeInsets.only(
+                    //                                     left: 120),
+                    //                                 child: Image.asset(
+                    //                                   'assets/Vector.png',
+                    //                                   height: 9,
+                    //                                   fit: BoxFit.fill,
+                    //                                 ),
+                    //                               )
+                    //                             ],
+                    //                           ),
+                    //                         )
+                    //                         //Image
+                    //                       ],
+                    //                     ),
+                    //                   )),
+                    //             )),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    mapelhome(
+                      imgpath: "assets/tree.svg",
                       colorbox: Color(0xff94B147),
                       title: "Biologi",
                       teacher: "John Doe S. Pd.",
