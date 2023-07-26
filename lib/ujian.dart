@@ -1,4 +1,5 @@
 import 'package:first_app/biologiujian.dart';
+import 'package:first_app/englishujian.dart';
 import 'package:first_app/matematikaujian.dart';
 import 'package:first_app/navbar.dart';
 import 'package:first_app/sidebar.dart';
@@ -210,6 +211,12 @@ class _chipsState extends State<chips> {
                 title: "Bhs.Inggris",
                 teacher: "Jane.Doe S.Pd.",
                 time: "10.30 - 12.00",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => englishujian()),
+                  );
+                },
               )
             ],
           ),
