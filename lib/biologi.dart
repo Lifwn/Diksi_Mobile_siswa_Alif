@@ -1,17 +1,16 @@
 import 'package:first_app/widget/cardmapel.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/sidebar.dart';
-
 import 'package:flutter_svg/svg.dart';
 
-class english extends StatefulWidget {
-  const english({super.key});
+class biologi extends StatefulWidget {
+  const biologi({super.key});
 
   @override
-  State<english> createState() => englishState();
+  State<biologi> createState() => biologiState();
 }
 
-class englishState extends State<english> {
+class biologiState extends State<biologi> {
   String dropdownvalue = 'Filter 0';
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
@@ -72,7 +71,7 @@ class englishState extends State<english> {
                       Row(
                         children: [
                           SvgPicture.asset(
-                            'assets/english.svg',
+                            'assets/tree.svg',
                             height: 36,
                             width: 36,
                           ),
@@ -84,7 +83,7 @@ class englishState extends State<english> {
                                 Container(
                                     margin: EdgeInsets.only(top: 1),
                                     child: Text(
-                                      'Bhs. Inggris',
+                                      'Biologi',
                                       style: TextStyle(
                                           fontSize: 22,
                                           fontWeight: FontWeight.w700),

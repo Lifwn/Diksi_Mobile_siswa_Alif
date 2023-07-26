@@ -1,10 +1,11 @@
+import 'package:first_app/english.dart';
+import 'package:first_app/matematika.dart';
 import 'package:first_app/widget/mapelkbm.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/navbar.dart';
 import 'package:first_app/sidebar.dart';
-import 'package:first_app/pagec1.dart';
+
 import 'package:flutter/services.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class jadwalkbm extends StatefulWidget {
   const jadwalkbm({super.key});
@@ -112,7 +113,6 @@ class jadwalkbmState extends State<jadwalkbm> {
               ) //CONTENT CONTAINER
             ]),
       )),
-      bottomNavigationBar: navbar(),
     );
   }
 }
@@ -186,6 +186,10 @@ class _chiphariState extends State<chiphari> {
                 teacher: "Jane.Doe S.Pd.",
                 desc:
                     "Memahami proses pengerjaan Logaritma Campuran, dan pengerjaan dalam soal perhitungan logika...",
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => matematika()));
+                },
               ),
               mapelkbm(
                   colorbox: Color(0xff94B147),
@@ -198,15 +202,16 @@ class _chiphariState extends State<chiphari> {
                 title: "Bhs.Inggris",
                 teacher: "Jane.Doe S.Pd.",
                 desc: "Persiapan Test",
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => english(),
+                      ));
+                },
               )
             ],
           ),
-          // width: 200,
-          // height: 100,
-          // color: Colors.blue,
-          // child: Center(
-          //   child: Text("Konten untuk hari Senin"),
-          // ),
         );
       case "Selasa":
         return Container(

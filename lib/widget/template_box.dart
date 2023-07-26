@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class TemplateBox extends StatelessWidget {
   TemplateBox({
@@ -52,10 +53,10 @@ class TemplateBox extends StatelessWidget {
                     children: [
                       Container(
                         margin: EdgeInsets.only(left: 16, top: 16),
-                        child: Image.asset(
+                        child: SvgPicture.asset(
                           imgPath,
-                          width: 24,
-                          height: 24,
+                          width: 34,
+                          height: 34,
                           fit: BoxFit.fill,
                         ),
                       ),

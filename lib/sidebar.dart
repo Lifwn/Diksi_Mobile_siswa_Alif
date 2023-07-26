@@ -1,5 +1,6 @@
 import 'package:first_app/jadwalkbm.dart';
 import 'package:first_app/ujian.dart';
+import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/homepage.dart';
 import 'package:flutter_svg/svg.dart';
@@ -45,7 +46,7 @@ class sidebar extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => homepage()),
+                      MaterialPageRoute(builder: (context) => bottomnavbar()),
                     );
                   },
                   child: Container(

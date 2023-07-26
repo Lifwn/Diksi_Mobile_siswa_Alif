@@ -1,4 +1,5 @@
 import 'package:first_app/homepage.dart';
+import 'package:first_app/rapor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -21,8 +22,8 @@ class _navbarState extends State<navbar> {
             context, MaterialPageRoute(builder: (context) => homepage()));
         break;
       case 1:
-        // Navigator.pushReplacement(
-        //     context, MaterialPageRoute(builder: (context) => loginpage()));
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => rapor()));
         break;
       case 2:
         // Navigasi ke halaman lain jika diperlukan

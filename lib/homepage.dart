@@ -1,5 +1,7 @@
+import 'package:first_app/biologi.dart';
 import 'package:first_app/english.dart';
 import 'package:first_app/jadwalkbm.dart';
+import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:first_app/widget/link.dart';
 import 'package:first_app/widget/mapelhome.dart';
 import 'package:flutter/material.dart';
@@ -181,47 +183,34 @@ class homepageState extends State<homepage> {
                             TemplateBox(
                               colorBox: Color(0xffff5e48),
                               margin: EdgeInsets.only(left: 30),
-                              imgPath: "assets/math.png",
+                              imgPath: "assets/math.svg",
                               title: "Matematika",
                               teacher: "Jane Doe S.Pd.",
                               date: "Senin 3 Desember",
                               desc: "Mempelajari Tenta...",
                               time: "2 Jam Pelajaran",
                               ontap: () {
-                                final snackBar = SnackBar(
-                                  content: const Text('Yay! A SnackBar!'),
-                                  action: SnackBarAction(
-                                    label: 'Undo',
-                                    onPressed: () {
-                                      // Some code to undo the change.
-                                    },
-                                  ),
-                                );
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => matematika(),
+                                    ));
                               },
                             ),
                             TemplateBox(
                               colorBox: Color(0xff94B147),
                               margin: EdgeInsets.only(right: 30),
-                              imgPath: "assets/tree.png",
+                              imgPath: "assets/tree.svg",
                               title: "Biologi",
                               teacher: "John Doe S.Pd.",
                               date: "Senin 3 Desember",
                               desc: "Ulangan Fotosint...",
                               time: "2 Jam Pelajaran",
                               ontap: () {
-                                final snackBar = SnackBar(
-                                  content: const Text('Yay! A SnackBa!'),
-                                  action: SnackBarAction(
-                                    label: 'Undo',
-                                    onPressed: () {
-                                      // Some code to undo the change.
-                                    },
-                                  ),
-                                );
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => biologi()));
                               },
                             )
                           ]),
@@ -255,102 +244,6 @@ class homepageState extends State<homepage> {
                         );
                       },
                     ),
-
-                    // Container(
-                    //   // Mata Pelajaran Kedua
-
-                    //   margin: EdgeInsets.only(left: 30, right: 30),
-                    //   child: Column(
-                    //     mainAxisAlignment: MainAxisAlignment.start,
-                    //     children: [
-                    //       Container(
-                    //         margin: EdgeInsets.only(top: 8),
-                    //         child: InkWell(
-                    //             //Mata Pelajaran
-                    //             onTap: () {
-                    //               final snackBar = SnackBar(
-                    //                 content: const Text('Yay! A SnackBar!'),
-                    //                 action: SnackBarAction(
-                    //                   label: 'Undo',
-                    //                   onPressed: () {
-                    //                     // Some code to undo the change.
-                    //                   },
-                    //                 ),
-                    //               );
-
-                    //               // Find the ScaffoldMessenger in the widget tree
-                    //               // and use it to show a SnackBar.
-                    //               ScaffoldMessenger.of(context)
-                    //                   .showSnackBar(snackBar);
-                    //             },
-                    //             child: Card(
-                    //               child: Container(
-                    //                   color: Colors.black.withOpacity(0.05),
-                    //                   child: Padding(
-                    //                     padding: EdgeInsets.all(12),
-                    //                     child: Row(
-                    //                       children: [
-                    //                         Container(
-                    //                           child: Row(
-                    //                             children: [
-                    //                               Card(
-                    //                                   color: Color(0xff7C87F3),
-                    //                                   shape:
-                    //                                       RoundedRectangleBorder(
-                    //                                     borderRadius:
-                    //                                         BorderRadius
-                    //                                             .circular(8),
-                    //                                   ),
-                    //                                   child: Container(
-                    //                                       height: 43.5,
-                    //                                       width: 43.5,
-                    //                                       child: Center(
-                    //                                           child: Text(
-                    //                                         'En',
-                    //                                         style: TextStyle(
-                    //                                             color: Colors
-                    //                                                 .white),
-                    //                                       )))),
-                    //                               Container(
-                    //                                 margin: EdgeInsets.only(
-                    //                                     left: 12),
-                    //                                 child: Column(
-                    //                                   crossAxisAlignment:
-                    //                                       CrossAxisAlignment
-                    //                                           .start,
-                    //                                   children: [
-                    //                                     Text(
-                    //                                       'Bhs. Inggris',
-                    //                                       style: TextStyle(
-                    //                                           fontWeight:
-                    //                                               FontWeight
-                    //                                                   .bold),
-                    //                                     ),
-                    //                                     Text('Jane Doe S. pd.')
-                    //                                   ],
-                    //                                 ),
-                    //                               ),
-                    //                               Container(
-                    //                                 margin: EdgeInsets.only(
-                    //                                     left: 120),
-                    //                                 child: Image.asset(
-                    //                                   'assets/Vector.png',
-                    //                                   height: 9,
-                    //                                   fit: BoxFit.fill,
-                    //                                 ),
-                    //                               )
-                    //                             ],
-                    //                           ),
-                    //                         )
-                    //                         //Image
-                    //                       ],
-                    //                     ),
-                    //                   )),
-                    //             )),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
                     mapelhome(
                       imgpath: "assets/tree.svg",
                       colorbox: Color(0xff94B147),
@@ -477,7 +370,8 @@ class homepageState extends State<homepage> {
               ) //CONTENT CONTAINER
             ]),
       )),
-      bottomNavigationBar: navbar(),
+      // bottomNavigationBar: navbar(),
+      // bottomNavigationBar: bottomnavbar(),
     );
   }
 }

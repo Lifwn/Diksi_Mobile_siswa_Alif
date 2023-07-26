@@ -1,7 +1,7 @@
+import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:first_app/widget/cardmapel.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/sidebar.dart';
-import 'package:first_app/navbar.dart';
 import 'package:flutter_svg/svg.dart';
 
 class matematika extends StatefulWidget {
@@ -13,7 +13,6 @@ class matematika extends StatefulWidget {
 
 class matematikaState extends State<matematika> {
   String dropdownvalue = 'Filter 0';
-  // List<String> options = ["Pilihan 1", "Pilihan 2", "Pilihan 3"];
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 
@@ -195,6 +194,7 @@ class matematikaState extends State<matematika> {
               ) //CONTENT CONTAINER
             ]),
       )),
+      // bottomNavigationBar: bottomnavbar(),
       // bottomNavigationBar: navbar(),
     );
   }
