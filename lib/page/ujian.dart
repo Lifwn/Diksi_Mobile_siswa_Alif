@@ -1,7 +1,7 @@
-import 'package:first_app/biologiujian.dart';
-import 'package:first_app/englishujian.dart';
-import 'package:first_app/matematikaujian.dart';
-import 'package:first_app/sidebar.dart';
+import 'package:first_app/page/biologiujian.dart';
+import 'package:first_app/page/englishujian.dart';
+import 'package:first_app/page/matematikaujian.dart';
+import 'package:first_app/widget/sidebar.dart';
 import 'package:first_app/widget/mapelujian.dart';
 import 'package:flutter/material.dart';
 

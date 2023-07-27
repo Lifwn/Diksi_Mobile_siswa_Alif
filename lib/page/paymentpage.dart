@@ -1,18 +1,19 @@
-import 'package:first_app/navbar.dart';
-import 'package:first_app/widget/raporcard.dart';
+import 'package:first_app/widget/cardmapel.dart';
+import 'package:first_app/widget/paymentcard.dart';
+import 'package:first_app/widget/paymentcard2.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/sidebar.dart';
+import 'package:first_app/widget/sidebar.dart';
 import 'package:flutter_svg/svg.dart';
 
-class rapor extends StatefulWidget {
-  const rapor({super.key});
+class paymentpage extends StatefulWidget {
+  const paymentpage({super.key});
 
   @override
-  State<rapor> createState() => raporState();
+  State<paymentpage> createState() => paymentpageState();
 }
 
-class raporState extends State<rapor> {
-  String dropdownvalue = 'Semua Semester';
+class paymentpageState extends State<paymentpage> {
+  String dropdownvalue = 'Filter 0';
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 
@@ -70,14 +71,14 @@ class raporState extends State<rapor> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: 16),
+                        margin: EdgeInsets.only(left: 0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                                 margin: EdgeInsets.only(top: 1),
                                 child: Text(
-                                  'e-Rapor',
+                                  'Pembayaran',
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w700),
@@ -107,53 +108,89 @@ class raporState extends State<rapor> {
                 margin: EdgeInsets.only(
                   top: 25,
                 ),
-                color: Color(0xfff5f5f5),
+                color: Colors.grey.withOpacity(0.3),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       //filter box
                       margin: EdgeInsets.only(left: 24, top: 10),
-                      width: 190,
+                      width: 148,
                       child: Card(
-                        child: Container(
-                            margin: EdgeInsets.only(left: 10),
-                            width: 165,
-                            padding: EdgeInsets.only(left: 8),
-                            child: DropdownButtonHideUnderline(
-                              child: DropdownButton<String>(
-                                value: dropdownvalue,
-                                // icon: SvgPicture.asset('assets/vector/filter.svg'),
-                                items: <String>[
-                                  'Semua Semester',
-                                  'Tengah Semester',
-                                  'Akhir Semester',
-                                ].map((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
-                                onChanged: (String? newValue) {
-                                  setState(() {
-                                    dropdownvalue = newValue!;
-                                  });
-                                },
-                              ),
-                            )),
-                      ),
+                          child: Row(
+                        children: [
+                          Container(
+                              margin: EdgeInsets.only(left: 10),
+                              child:
+                                  SvgPicture.asset('assets/vector/filter.svg')),
+                          Container(
+                              width: 115,
+                              padding: EdgeInsets.only(left: 8),
+                              child: DropdownButtonHideUnderline(
+                                child: DropdownButton<String>(
+                                  value: dropdownvalue,
+                                  // icon: SvgPicture.asset('assets/vector/filter.svg'),
+                                  items: <String>[
+                                    'Filter 0',
+                                    'Filter 1',
+                                    'Filter 2',
+                                    'Filter 3',
+                                    'Filter 4',
+                                  ].map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      dropdownvalue = newValue!;
+                                    });
+                                  },
+                                ),
+                              )),
+                        ],
+                      )),
                     ),
-                    raporcard(
-                      backgroundcolor: Color(0xff5864D3),
-                      colorbox: Color(0xff5864D3),
-                      imgPath: "assets/vector/note.svg",
-                      title: "test",
-                    )
+                    paymentcard(
+                      imgPath: "assets/vector/Frame-white.svg",
+                      colorbox: Color(0xFF698916),
+                      backgroundcolor: Color(0xFF698916),
+                      title: "SPP Bulan Juli",
+                      titlecolor: Colors.white,
+                      teacher: "G01923305ASP",
+                      yearcolor: Color(0x80FFFFFF),
+                      buttoncolor: Colors.white,
+                      paymenttextcolor: Color(0xFF698916),
+                      onTap: () {},
+                    ),
+                    paymentcard2(
+                      imgPath: "assets/vector/Frame-greenbg.svg",
+                      colorbox: Color(0xFFCBE091),
+                      backgroundcolor: Color(0x0D000000),
+                      title: "SPP Bulan Mei 2022",
+                      titlecolor: Colors.black,
+                      teacher: "G01923305ASP",
+                      yearcolor: Color(0x80000000),
+                    ),
+                    paymentcard(
+                      imgPath: "assets/vector/Frame-white.svg",
+                      colorbox: Color(0xFF698916),
+                      backgroundcolor: Color(0xFF698916),
+                      title: "SPP Bulan Juli",
+                      titlecolor: Colors.white,
+                      teacher: "G01923305ASP",
+                      yearcolor: Color(0x80FFFFFF),
+                      buttoncolor: Colors.white,
+                      paymenttextcolor: Color(0xFF698916),
+                      onTap: () {},
+                    ),
                   ], // CONTENT CHILDREN
                 ),
               ) //CONTENT CONTAINER
             ]),
       )),
+      // bottomNavigationBar: bottomnavbar(),
       // bottomNavigationBar: navbar(),
     );
   }

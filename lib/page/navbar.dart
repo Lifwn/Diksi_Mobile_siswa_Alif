@@ -1,5 +1,5 @@
-import 'package:first_app/homepage.dart';
-import 'package:first_app/rapor.dart';
+import 'package:first_app/page/homepage.dart';
+import 'package:first_app/page/rapor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

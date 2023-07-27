@@ -1,8 +1,8 @@
-import 'package:first_app/jadwalkbm.dart';
-import 'package:first_app/ujian.dart';
+import 'package:first_app/page/jadwalkbm.dart';
+import 'package:first_app/page/ujian.dart';
 import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/homepage.dart';
+import 'package:first_app/page/homepage.dart';
 import 'package:flutter_svg/svg.dart';
 
 class sidebar extends StatelessWidget {
@@ -44,7 +44,7 @@ class sidebar extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => bottomnavbar()),
                     );

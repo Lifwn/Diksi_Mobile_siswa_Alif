@@ -1,18 +1,18 @@
-import 'package:first_app/biologi.dart';
-import 'package:first_app/english.dart';
-import 'package:first_app/jadwalkbm.dart';
+import 'package:first_app/page/biologi.dart';
+import 'package:first_app/page/english.dart';
+import 'package:first_app/page/jadwalkbm.dart';
 import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:first_app/widget/link.dart';
 import 'package:first_app/widget/mapelhome.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/navbar.dart';
-import 'package:first_app/sidebar.dart';
-import 'package:first_app/pagec1.dart';
+import 'package:first_app/page/navbar.dart';
+import 'package:first_app/widget/sidebar.dart';
+import 'package:first_app/widget/pagec1.dart';
 import 'package:flutter/services.dart';
-import 'package:first_app/matematika.dart';
+import 'package:first_app/page/matematika.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import 'widget/template_box.dart';
+import '../widget/template_box.dart';
 
 final _controller = PageController();
 

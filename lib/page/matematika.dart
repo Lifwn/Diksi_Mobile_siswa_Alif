@@ -1,17 +1,16 @@
 import 'package:first_app/widget/cardmapel.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/sidebar.dart';
-
+import 'package:first_app/widget/sidebar.dart';
 import 'package:flutter_svg/svg.dart';
 
-class english extends StatefulWidget {
-  const english({super.key});
+class matematika extends StatefulWidget {
+  const matematika({super.key});
 
   @override
-  State<english> createState() => englishState();
+  State<matematika> createState() => matematikaState();
 }
 
-class englishState extends State<english> {
+class matematikaState extends State<matematika> {
   String dropdownvalue = 'Filter 0';
 
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
@@ -72,7 +71,7 @@ class englishState extends State<english> {
                       Row(
                         children: [
                           SvgPicture.asset(
-                            'assets/english.svg',
+                            'assets/math.svg',
                             height: 36,
                             width: 36,
                           ),
@@ -84,7 +83,7 @@ class englishState extends State<english> {
                                 Container(
                                     margin: EdgeInsets.only(top: 1),
                                     child: Text(
-                                      'Bhs. Inggris',
+                                      'Matematika',
                                       style: TextStyle(
                                           fontSize: 22,
                                           fontWeight: FontWeight.w700),
@@ -194,6 +193,7 @@ class englishState extends State<english> {
               ) //CONTENT CONTAINER
             ]),
       )),
+      // bottomNavigationBar: bottomnavbar(),
       // bottomNavigationBar: navbar(),
     );
   }

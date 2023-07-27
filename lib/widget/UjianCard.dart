@@ -1,4 +1,4 @@
-import 'package:first_app/ujian.dart';
+import 'package:first_app/page/ujian.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
