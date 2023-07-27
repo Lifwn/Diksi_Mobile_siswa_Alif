@@ -1,4 +1,3 @@
-import 'package:first_app/widget/cardmapel.dart';
 import 'package:first_app/widget/paymentcard.dart';
 import 'package:first_app/widget/paymentcard2.dart';
 import 'package:flutter/material.dart';

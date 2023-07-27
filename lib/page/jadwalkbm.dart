@@ -2,7 +2,7 @@ import 'package:first_app/page/english.dart';
 import 'package:first_app/page/matematika.dart';
 import 'package:first_app/widget/mapelkbm.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/page/navbar.dart';
+
 import 'package:first_app/widget/sidebar.dart';
 
 import 'package:flutter/services.dart';

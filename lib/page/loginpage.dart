@@ -1,7 +1,6 @@
 import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/page/register.dart';
-import 'package:first_app/page/homepage.dart';
 
 class loginpage extends StatefulWidget {
   const loginpage({super.key});

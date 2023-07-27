@@ -1,9 +1,7 @@
-import 'package:first_app/page/navbar.dart';
 import 'package:first_app/page/pdfviewpage.dart';
 import 'package:first_app/widget/raporcard.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/widget/sidebar.dart';
-import 'package:flutter_svg/svg.dart';
 
 class rapor extends StatefulWidget {
   const rapor({super.key});
