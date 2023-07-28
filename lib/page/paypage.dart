@@ -1,3 +1,4 @@
+import 'package:first_app/page/statuspembayaran.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -116,18 +117,177 @@ class _paypageState extends State<paypage> {
                               style: TextStyle(color: Color(0xFFFFC81A)),
                             ),
                           )),
+                      Column(
+                        children: [
+                          Container(
+                            width: 312,
+                            height: 143,
+                            margin:
+                                EdgeInsets.only(top: 34, left: 24, right: 24),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                    // margin: EdgeInsets.only(l),
+                                    color: Colors.blue,
+                                    child: Image.asset(
+                                      "assets/briva.jpg",
+                                      width: 56,
+                                      height: 18,
+                                      fit: BoxFit.fill,
+                                    )),
+                                Container(
+                                  //container per 2 teks
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      //children per 2 teks
+                                      Container(
+                                        //total bayar container
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Total Bayar",
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Color(0xFF606060)),
+                                            ),
+                                            Text(
+                                              "Rp 675.500,00",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w700,
+                                                  fontSize: 16,
+                                                  color: Color(0xFF646FD4)),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        //metode pembayaran
+                                        margin: EdgeInsets.only(top: 16),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Metode Pembayaran",
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Color(0xFF606060)),
+                                            ),
+                                            Text(
+                                              "BRIVA Virtual Account",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: 16,
+                                                // color: Color(0xFF646FD4)
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        // nomor virtual
+                                        margin: EdgeInsets.only(
+                                          top: 16,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Nomor Virtual Account",
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Color(0xFF606060)),
+                                            ),
+                                            Text(
+                                              "8078237882112",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: 16,
+                                                // color: Color(0xFF646FD4)
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                       Container(
-                        margin: EdgeInsets.only(top: 34),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset("assets/briva.svg"),
-                          ],
+                        margin: EdgeInsets.only(top: 101),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            margin: EdgeInsets.only(bottom: 8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  "assets/vector/info-circle.svg",
+                                  // height: 22,
+                                  // width: 22,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 8),
+                                  child: Text(
+                                    "Cara Pembayaran",
+                                    style: TextStyle(
+                                        color: Color(0xFF646FD4),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 16),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                         ),
                       )
                     ],
                   ),
-                )
+                ),
               ]),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Color(0xFF5864D3),
+        ),
+        width: 31,
+        height: 52,
+        margin: EdgeInsets.fromLTRB(24, 0, 24, 60),
+        child: Center(
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => statuspembayaran(),
+                  ));
+            },
+            child: Text(
+              "Lihat Status Pembayaran",
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                  color: Colors.white),
+            ),
+          ),
         ),
       ),
     );
