@@ -1,4 +1,4 @@
-import 'package:first_app/page/statuspembayaran.dart';
+import 'package:first_app/page/carapembayaran.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,16 +13,8 @@ class _paypageState extends State<paypage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff5f5f5),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        // actions: [
-        //   IconButton(
-        //       onPressed: () {},
-        //       icon: CircleAvatar(
-        //         backgroundImage: AssetImage('assets/profile.png'),
-        //         radius: 15,
-        //       ))
-        // ],
         title: Text(
           "Pembayaran",
           style: TextStyle(color: Colors.black),
@@ -231,7 +223,13 @@ class _paypageState extends State<paypage> {
                       Container(
                         margin: EdgeInsets.only(top: 101),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => carapembayaran(),
+                                ));
+                          },
                           child: Container(
                             margin: EdgeInsets.only(bottom: 8),
                             child: Row(
@@ -277,7 +275,7 @@ class _paypageState extends State<paypage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => statuspembayaran(),
+                    builder: (context) => carapembayaran(),
                   ));
             },
             child: Text(

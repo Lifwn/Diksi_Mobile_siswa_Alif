@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class cardpayment extends StatelessWidget {
-  cardpayment({
+class bankcard extends StatelessWidget {
+  bankcard({
     super.key,
     this.colorbox,
     this.imgpath = "",
@@ -51,10 +51,10 @@ class cardpayment extends StatelessWidget {
                                 children: [
                                   Row(
                                     children: [
-                                      // Container(
-                                      //     height: 38,
-                                      //     width: 38,
-                                      //     child: Image.asset(imgpathpng)),
+                                      Container(
+                                          height: 38,
+                                          width: 38,
+                                          child: Image.asset(imgpathpng)),
                                       Container(
                                           height: 38,
                                           // width: 38,

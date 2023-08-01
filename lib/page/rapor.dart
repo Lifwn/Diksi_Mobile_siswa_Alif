@@ -122,7 +122,6 @@ class raporState extends State<rapor> {
                             child: DropdownButtonHideUnderline(
                               child: DropdownButton<String>(
                                 value: dropdownvalue,
-                                // icon: SvgPicture.asset('assets/vector/filter.svg'),
                                 items: <String>[
                                   'Semua Semester',
                                   'Tengah Semester',
@@ -172,7 +171,6 @@ class raporState extends State<rapor> {
               ) //CONTENT CONTAINER
             ]),
       )),
-      // bottomNavigationBar: navbar(),
     );
   }
 }

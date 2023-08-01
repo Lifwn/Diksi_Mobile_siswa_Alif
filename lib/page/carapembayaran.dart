@@ -1,20 +1,23 @@
+import 'package:first_app/page/debitkreditpay.dart';
+import 'package:first_app/page/transferbank.dart';
+import 'package:first_app/page/virtualaccount.dart';
 import 'package:first_app/widget/cardpayment.dart';
-import 'package:first_app/widget/mapelhome.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class statuspembayaran extends StatefulWidget {
-  const statuspembayaran({super.key});
+class carapembayaran extends StatefulWidget {
+  const carapembayaran({super.key});
 
   @override
-  State<statuspembayaran> createState() => _statuspembayaranState();
+  State<carapembayaran> createState() => _carapembayaranState();
 }
 
-class _statuspembayaranState extends State<statuspembayaran> {
+class _carapembayaranState extends State<carapembayaran> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff5f5f5),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           "Pembayaran",
@@ -144,22 +147,40 @@ class _statuspembayaranState extends State<statuspembayaran> {
                     // colorbox: Color(0xffff5e48),
                     margin: EdgeInsets.only(top: 16, right: 30, left: 30),
                     title: "Virtual Account",
-                    teacher: "Bank Virtual ",
-                    onTap: () {}),
+                    teacher: "Bank Virtual Account",
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => virtualaccount(),
+                          ));
+                    }),
                 cardpayment(
-                    imgpath: "assets/vector/coin.svg",
+                    imgpath: "assets/vector/bank.svg",
                     // colorbox: Color(0xffff5e48),
                     margin: EdgeInsets.only(top: 5, right: 30, left: 30),
-                    title: "Matematika",
-                    teacher: "Jane Doe S. Pd.",
-                    onTap: () {}),
+                    title: "Transfer Bank",
+                    teacher: "Transfer Tunai ke Bank Lain",
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => transferbank(),
+                          ));
+                    }),
                 cardpayment(
-                    imgpath: "assets/vector/coin.svg",
+                    imgpath: "assets/vector/debitcard.svg",
                     // colorbox: Color(0xffff5e48),
                     margin: EdgeInsets.only(top: 5, right: 30, left: 30),
-                    title: "Matematika",
-                    teacher: "Jane Doe S. Pd.",
-                    onTap: () {})
+                    title: "Debit/Credit Card",
+                    teacher: "Menggunakan Kartu Debit",
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => debitkreditpay(),
+                          ));
+                    })
                 // page column
               ]),
         ),
