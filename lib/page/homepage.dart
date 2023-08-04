@@ -13,6 +13,7 @@ import 'package:first_app/page/matematika.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widget/template_box.dart';
+import 'package:go_router/go_router.dart';
 
 final _controller = PageController();
 

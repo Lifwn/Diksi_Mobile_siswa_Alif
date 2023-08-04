@@ -64,7 +64,9 @@ class raporcard extends StatelessWidget {
                                     child: Container(
                                         height: 43.5,
                                         width: 43.5,
-                                        child: SvgPicture.asset(imgPath))),
+                                        child: SvgPicture.asset(
+                                          imgPath,
+                                        ))),
                                 Container(
                                   margin: EdgeInsets.only(top: 10),
                                   padding: EdgeInsets.only(left: 5),

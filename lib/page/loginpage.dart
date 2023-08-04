@@ -1,6 +1,8 @@
+import 'package:first_app/RouteConstant.dart';
 import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/page/register.dart';
+import 'package:go_router/go_router.dart';
 
 class loginpage extends StatefulWidget {
   const loginpage({super.key});
@@ -119,11 +121,12 @@ class _loginpageState extends State<loginpage> {
                                   padding:
                                       EdgeInsets.only(top: 15.0, bottom: 15.0)),
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => bottomnavbar()),
-                                );
+                                context.go('/rapor');
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //       builder: (context) => bottomnavbar()),
+                                // );
                               },
                               child: Text(
                                 'Log in',
