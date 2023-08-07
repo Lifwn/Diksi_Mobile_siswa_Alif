@@ -37,7 +37,8 @@ class _RegisterState extends State<Register> {
     // Make the POST request to the backend
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:5000/register'), // Replace with your backend URL
+        Uri.parse(
+            'http://localhost:9000/register'), // Replace with your backend URL
         headers: {
           "Content-Type": "application/json",
         },
@@ -265,11 +266,12 @@ class _RegisterState extends State<Register> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
+                        MaterialPageRoute(builder: (context) => loginpage()),
                       );
                     },
                     style: TextButton.styleFrom(
-                      padding: EdgeInsets.only(top: 0, bottom: 0, left: 3, right: 0),
+                      padding:
+                          EdgeInsets.only(top: 0, bottom: 0, left: 3, right: 0),
                     ),
                     child: Text('Masuk Ke Akun'),
                   ),

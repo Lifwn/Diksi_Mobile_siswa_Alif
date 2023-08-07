@@ -12,5 +12,5 @@ func main() {
 	storage.InitDB()
 
 	e.POST("/register", handlers.CreateAkun)
-	e.Logger.Fatal(e.Start(":5000"))
+	e.Logger.Fatal(e.Start(":9000"))
 }

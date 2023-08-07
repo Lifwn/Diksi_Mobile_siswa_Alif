@@ -57,10 +57,16 @@ class _debitkreditpayState extends State<debitkreditpay> {
                 Container(
                   width: 296,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF646FD4)),
                     onPressed: () {
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //   builder: (context) => AnotherPage(),
-                      // ));
+                      showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Scaffold(
+                              backgroundColor: Colors.blue,
+                            );
+                          });
                     },
 
                     // width: 296,
