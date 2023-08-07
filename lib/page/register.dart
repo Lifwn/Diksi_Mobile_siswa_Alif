@@ -37,7 +37,7 @@ class _RegisterState extends State<Register> {
     // Make the POST request to the backend
     try {
       final response = await http.post(
-        Uri.parse('http://your-backend-url/register'), // Replace with your backend URL
+        Uri.parse('http://localhost:5000/register'), // Replace with your backend URL
         headers: {
           "Content-Type": "application/json",
         },
