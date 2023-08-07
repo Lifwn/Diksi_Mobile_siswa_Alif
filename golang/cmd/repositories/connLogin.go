@@ -9,7 +9,7 @@ import(
 func GetUserByEmail(email string) (*models.Akun, error) {
 	db := storage.GetDB()
 	akun := &models.Akun{}
-	sqlStatement := `SELECT id, username, password, email, phone FROM data WHERE email = $1`
+	sqlStatement := `SELECT id, username, password, email, phone FROM akun WHERE email = $1`
 
 	err := db.QueryRow(sqlStatement, email).Scan(&akun.Id, &akun.Username, &akun.Password, &akun.Email, &akun.Phone)
 	if err != nil {
