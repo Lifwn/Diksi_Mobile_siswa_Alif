@@ -22,13 +22,6 @@ class link extends StatelessWidget {
         ),
         TextButton(
             onPressed: route,
-            // () {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //         builder: (context) => jadwalkbm()),
-            //   );
-            // },
             child: Text(
               'Selengkapnya >',
               style: TextStyle(fontSize: 14, color: Color(0xff5864D3)),
