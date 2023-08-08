@@ -1,4 +1,5 @@
 import 'package:first_app/page/jadwalkbm.dart';
+import 'package:first_app/page/loginpage.dart';
 import 'package:first_app/page/ujian.dart';
 import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:flutter/material.dart';
@@ -147,6 +148,34 @@ class sidebar extends StatelessWidget {
                       Container(
                         child: Text(
                           'Ujian',
+                          style: TextStyle(
+                              color: Color(0xff292929),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14),
+                        ),
+                      )
+                    ]),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => loginpage()),
+                    );
+                  },
+                  child: Container(
+                    child: Row(children: [
+                      Container(
+                          margin: EdgeInsets.fromLTRB(16, 200, 16, 200),
+                          child: Icon(Icons.logout)
+                          // SvgPicture.asset(
+                          //     'assets/vector/document-text.svg')
+
+                          ),
+                      Container(
+                        child: Text(
+                          'Log Out',
                           style: TextStyle(
                               color: Color(0xff292929),
                               fontWeight: FontWeight.w400,
