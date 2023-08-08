@@ -157,29 +157,31 @@ class sidebar extends StatelessWidget {
                     ]),
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => loginpage()),
-                    );
-                  },
-                  child: Container(
-                    child: Row(children: [
-                      Container(
-                          margin: EdgeInsets.fromLTRB(16, 200, 16, 200),
-                          child: Icon(Icons.logout)
-                          // SvgPicture.asset(
-                          //     'assets/vector/document-text.svg')
+              InkWell(
+                onTap: () async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.remove("isLoggedIn"); // Hapus status login
 
-                          ),
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => loginpage()),
+                  );
+                },
+                child: Container(
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.fromLTRB(16, 200, 16, 200),
+                        child: Icon(Icons.logout),
+                      ),
                       Container(
                         child: Text(
                           'Log Out',
                           style: TextStyle(
-                              color: Color(0xff292929),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14),
+                            color: Color(0xff292929),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14, ),
                         ),
                       )
                     ]),

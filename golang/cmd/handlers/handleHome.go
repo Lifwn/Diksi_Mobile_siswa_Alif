@@ -24,7 +24,3 @@ func GetAkunByID(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, existingAkun)
 }
-
-func Home(c echo.Context) error {
-	return c.File("go-collab/lib/page/homepage.dart")
-}

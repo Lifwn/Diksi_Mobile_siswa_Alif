@@ -43,8 +43,7 @@ class _loginpageState extends State<loginpage> {
 
     try {
       final response = await http.post(
-        Uri.parse(
-            'http://localhost:9000/login'), // Ganti dengan URL backend Anda
+        Uri.parse('http://localhost:9000/login'),
         headers: {
           "Content-Type": "application/json",
         },
@@ -53,6 +52,8 @@ class _loginpageState extends State<loginpage> {
 
       if (response.statusCode == 200) {
         print("Login berhasil");
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setBool("isLoggedIn", true);
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => bottomnavbar()),
