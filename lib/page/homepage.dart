@@ -26,7 +26,6 @@ class homepage extends StatefulWidget {
 }
 
 class homepageState extends State<homepage> {
-  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   String username = 'Alip Slebew';
 
   @override
@@ -36,13 +35,12 @@ class homepageState extends State<homepage> {
   }
 
   Future<void> fetchUsername() async {
-    final response =
-        await http.get(Uri.parse('http://localhost:9000/username'));
+    final prefs = await SharedPreferences.getInstance();
+    final savedUsername = prefs.getString("username");
 
-    if (response.statusCode == 200) {
-      final responseData = json.decode(response.body);
+    if (savedUsername != null) {
       setState(() {
-        username = responseData['username'];
+        username = savedUsername;
       });
     }
   }
@@ -105,13 +103,13 @@ class homepageState extends State<homepage> {
                         style: TextStyle(fontSize: 14),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: 1),
-                      child: Text(
-                        username,
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      Container(
+                        margin: EdgeInsets.only(top: 1),
+                        child: Text(
+                          username,
+                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
                       ),
-                    ),
                       Container(
                           margin: EdgeInsets.only(top: 12),
                           child: SizedBox(
