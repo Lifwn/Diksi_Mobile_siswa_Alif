@@ -68,6 +68,31 @@ class homepageState extends State<homepage> {
                     ),
               ),
               Container(
+                margin: EdgeInsets.only(left: 30, right: 30, top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: IconButton(
+                          splashRadius: 24,
+                          icon: Icon(Icons.menu),
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
+                            _globalKey.currentState?.openDrawer();
+                          }),
+                    ),
+                    Container(
+                        child: CircleAvatar(
+                      backgroundImage: AssetImage('assets/profile.png'),
+                      radius: 15,
+                    ))
+                  ],
+                ),
+              ),
+              Container(
                 //container judul
                 margin: EdgeInsets.only(left: 30, right: 30, top: 30),
                 child: Column(
