@@ -16,7 +16,7 @@ class pagec extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: Container(
           color: Colors.red,
-          child: Image.asset(
+          child: Image.network(
             imgpath,
             fit: BoxFit.fill,
             height: 150,

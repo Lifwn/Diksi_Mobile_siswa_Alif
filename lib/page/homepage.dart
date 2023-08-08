@@ -155,16 +155,16 @@ class homepageState extends State<homepage> {
                               controller: _controller,
                               children: [
                                 pagec(
-                                  imgpath: "assets/mading.png",
+                                  imgpath: "http://192.168.88.204:9000/images/latest/0",
                                 ),
                                 pagec(
-                                  imgpath: "assets/mading.png",
+                                  imgpath: "http://192.168.88.204:9000/images/latest/1",
                                 ),
                                 pagec(
-                                  imgpath: "assets/mading.png",
+                                  imgpath: "http://192.168.88.204:9000/images/latest/2",
                                 ),
                                 pagec(
-                                  imgpath: "assets/mading.png",
+                                  imgpath: "http://192.168.88.204:9000/images/latest/3",
                                 ),
                               ],
                             ),
