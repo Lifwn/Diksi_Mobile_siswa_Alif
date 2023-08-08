@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:first_app/page/loginpage.dart';
+import 'package:first_app/widget/bottomnavbar.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'flutter login',
       debugShowCheckedModeBanner: false,
-      home: loginpage(),
+      home: bottomnavbar(),
     );
   }
 }
