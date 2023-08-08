@@ -26,22 +26,25 @@ class homepage extends StatefulWidget {
 class homepageState extends State<homepage> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 
-  String username = 'John Doe';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _globalKey,
+      // appBar: AppBar(),
       drawer: sidebar(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Container(
-          child: Column(
+          child: Container(
+        child: Column(
+            //main column
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              //main children
               SizedBox(
                 height: 38,
-                child: Container(),
+                child: Container(
+                    // color: Colors.amber,
+                    ),
               ),
               Container(
                 margin: EdgeInsets.only(left: 30, right: 30, top: 20),
@@ -53,58 +56,54 @@ class homepageState extends State<homepage> {
                       height: 24,
                       width: 24,
                       child: IconButton(
-                        splashRadius: 24,
-                        icon: Icon(Icons.menu),
-                        padding: EdgeInsets.zero,
-                        onPressed: () {
-                          _globalKey.currentState?.openDrawer();
-                        },
-                      ),
+                          splashRadius: 24,
+                          icon: Icon(Icons.menu),
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
+                            _globalKey.currentState?.openDrawer();
+                          }),
                     ),
                     Container(
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage('assets/profile.png'),
-                        radius: 15,
-                      ),
-                    ),
+                        child: CircleAvatar(
+                      backgroundImage: AssetImage('assets/profile.png'),
+                      radius: 15,
+                    ))
                   ],
                 ),
               ),
               Container(
+                //container judul
                 margin: EdgeInsets.only(left: 30, right: 30, top: 30),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text(
-                        'Selamat Pagi,',
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
+                    //column judul
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        child: (Text('Selamat Pagi,',
+                            style: TextStyle(
+                              fontSize: 14,
+                            ))),
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 1),
-                      child: Text(
-                        username,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 12),
-                      child: SizedBox(
-                        width: 400,
-                        height: 40,
-                        child: TextField(
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.search),
-                            hintText: 'Cari Fitur, Nilai, Mapel, dll.',
-                            border: OutlineInputBorder(),
-                            contentPadding: EdgeInsets.symmetric(vertical: 10),
+                      Container(
+                          margin: EdgeInsets.only(top: 1),
+                          child: Text(
+                            'John Doe!',
+                            style: TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.bold),
+                          )),
+                      Container(
+                          margin: EdgeInsets.only(top: 12),
+                          child: SizedBox(
+                            width: 400,
+                            height: 40,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.search),
+                                  hintText: 'Cari Fitur, Nilai, Mapel, dll.',
+                                  border: OutlineInputBorder(),
+                                  contentPadding:
+                                      EdgeInsets.symmetric(vertical: 10)),
                             ),
                           ))
                     ]),
