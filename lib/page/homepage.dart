@@ -27,7 +27,7 @@ class homepage extends StatefulWidget {
 
 class homepageState extends State<homepage> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
-  String username = '';
+  String username = 'Alip Slebew';
 
   @override
   void initState() {
