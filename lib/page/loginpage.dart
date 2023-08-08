@@ -52,10 +52,12 @@ class _loginpageState extends State<loginpage> {
       );
 
       if (response.statusCode == 200) {
+        final responseData = json.decode(response.body);
+        username = responseData['username']; // Ubah 'username' sesuai dengan key yang digunakan pada respons dari server
         print("Login berhasil");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => bottomnavbar()),
+          MaterialPageRoute(builder: (context) => BottomNavBar()),
         );
       } else {
         print("Login gagal: ${response.body}");
