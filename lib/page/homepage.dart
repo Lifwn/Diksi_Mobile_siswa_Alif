@@ -99,20 +99,19 @@ class homepageState extends State<homepage> {
                     //column judul
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        child: Text('Selamat Pagi,',
-                            style: TextStyle(
-                              fontSize: 14,
-                            )),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Text('Selamat Pagi,',
+                        style: TextStyle(fontSize: 14),
                       ),
-                      Container(
-                          margin: EdgeInsets.only(top: 1),
-                          child: Text(
-                            username, // Display the fetched username here
-                            style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
-                          )),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 1),
+                      child: Text(
+                        username,
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                       Container(
                           margin: EdgeInsets.only(top: 12),
                           child: SizedBox(
