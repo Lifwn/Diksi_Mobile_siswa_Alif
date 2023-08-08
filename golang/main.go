@@ -2,8 +2,8 @@ package main
 
 import (
 	"go-collab/cmd/handlers"
-	"go-collab/cmd/storage"
 	"go-collab/cmd/middleware"
+	"go-collab/cmd/storage"
 
 	"github.com/labstack/echo/v4"
 )
