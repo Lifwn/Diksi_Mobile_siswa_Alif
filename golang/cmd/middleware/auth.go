@@ -2,7 +2,6 @@ package middleware
 
 import (
 	"go-collab/cmd/session"
-	"net/http"
 
 	"github.com/labstack/echo/v4"
 )
@@ -11,12 +10,13 @@ func RequireLogin(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		userID := session.GetSession(c, "user")
 		if userID == "" {
-			return c.JSON(http.StatusOK, "email or password is invalid!") 
+			return c.File("go-collab/lib/page/loginpage.dart")
 		}
 		
 		return next(c)
 	}
 }
+
 
 func NoCacheMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {

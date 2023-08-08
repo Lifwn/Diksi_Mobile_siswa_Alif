@@ -12,7 +12,9 @@ func main() {
 	e := echo.New()
 	storage.InitDB()
 
+	e.GET("/home", handlers.Home, middleware.RequireLogin, middleware.NoCacheMiddleware)
 	e.GET("/logout", handlers.LogoutAkun)
+	e.GET("/username", handlers.GetAkunByID)
 
 	e.POST("/register", handlers.CreateAkun)
 	e.POST("/login", handlers.LoginAkun)
