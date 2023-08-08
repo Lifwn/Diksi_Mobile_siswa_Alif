@@ -2,22 +2,14 @@ package handlers
 
 import (
 	"net/http"
-	"strconv"
-	"fmt"
-
 	"go-collab/cmd/repositories"
 
 	"github.com/labstack/echo/v4"
 )
 
 func GetAkunByID(c echo.Context) error {
-	akunID := c.Param("id")
-	id, err := strconv.Atoi(akunID)
-	if err != nil {
-		return c.JSON(http.StatusBadRequest, fmt.Errorf("invalid account ID"))
-	}
-
-	existingAkun, err := repositories.GetAkunByID(id)
+	akunIdentifier := c.Param("identifier") // Assuming you get the identifier from the route
+	existingAkun, err := repositories.GetAkunByID(akunIdentifier)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())
 	}

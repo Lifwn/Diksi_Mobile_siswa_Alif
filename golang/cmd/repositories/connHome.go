@@ -8,20 +8,23 @@ import (
 )
 
 
-func GetAkunByID(id int) (models.Akun, error) {
+func GetAkunByID(identifier string) (models.Akun, error) {
 	db := storage.GetDB()
 
-	sqlStatement := `SELECT username FROM akun WHERE id = $1`
-	row := db.QueryRow(sqlStatement, id)
+	sqlStatement := `
+		SELECT id, username, email, password FROM akun WHERE username = $1 OR email = $1
+`
 
-	akun := models.Akun{}
-	err := row.Scan(&akun.Username)
+	row := db.QueryRow(sqlStatement, identifier)
+
+	user := models.Akun{}
+	err := row.Scan(&user.Id, &user.Username, &user.Email, &user.Password)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return akun, fmt.Errorf("account not found")
+			return user, fmt.Errorf("user not found")
 		}
-		return akun, fmt.Errorf("failed to retrieve account : %w", err)
+		return user, fmt.Errorf("failed to retrieve user: %w", err)
 	}
 
-	return akun, nil
+	return user, nil
 }

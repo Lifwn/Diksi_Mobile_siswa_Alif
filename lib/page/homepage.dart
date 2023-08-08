@@ -25,6 +25,24 @@ class homepage extends StatefulWidget {
 
 class homepageState extends State<homepage> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
+  String username = '';
+
+    @override
+  void initState() {
+    super.initState();
+    fetchUsername();
+  }
+
+  Future<void> fetchUsername() async {
+    final response = await http.get(Uri.parse('http://localhost:9000/username'));
+
+    if (response.statusCode == 200) {
+      final responseData = json.decode(response.body);
+      setState(() {
+        username = responseData['username']; 
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,51 +64,26 @@ class homepageState extends State<homepage> {
                     // color: Colors.amber,
                     ),
               ),
-              Container(
-                margin: EdgeInsets.only(left: 30, right: 30, top: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    SizedBox(
-                      height: 24,
-                      width: 24,
-                      child: IconButton(
-                          splashRadius: 24,
-                          icon: Icon(Icons.menu),
-                          padding: EdgeInsets.zero,
-                          onPressed: () {
-                            _globalKey.currentState?.openDrawer();
-                          }),
-                    ),
-                    Container(
-                        child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/profile.png'),
-                      radius: 15,
-                    ))
-                  ],
-                ),
-              ),
-              Container(
-                //container judul
-                margin: EdgeInsets.only(left: 30, right: 30, top: 30),
-                child: Column(
-                    //column judul
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        child: (Text('Selamat Pagi,',
-                            style: TextStyle(
-                              fontSize: 14,
-                            ))),
-                      ),
-                      Container(
-                          margin: EdgeInsets.only(top: 1),
-                          child: Text(
-                            'John Doe!',
-                            style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
+      Container(
+        //container judul
+        margin: EdgeInsets.only(left: 30, right: 30, top: 30),
+        child: Column(
+          //column judul
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              child: Text('Selamat Pagi,',
+                  style: TextStyle(
+                    fontSize: 14,
+                  )),
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 1),
+                child: Text(
+                  username, // Display the fetched username here
+                  style: TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
                           )),
                       Container(
                           margin: EdgeInsets.only(top: 12),
