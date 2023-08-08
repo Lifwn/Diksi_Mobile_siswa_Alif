@@ -3,6 +3,7 @@ package handlers
 import (
 	"net/http"
 	"strconv"
+	"fmt"
 
 	"go-collab/cmd/repositories"
 	"go-collab/cmd/session"
@@ -28,6 +29,6 @@ func LoginAkun(c echo.Context) error {
 	}
 
 	session.SetSession(c, "user", strconv.Itoa(user.Id))
-
+	fmt.Println("Login Berhasil")
 	return c.JSON(http.StatusOK, "Login successful")
 }
