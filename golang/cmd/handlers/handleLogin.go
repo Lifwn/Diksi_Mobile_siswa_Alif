@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"net/http"
-	"strconv"
 	"fmt"
+	"strconv"
 
 	"go-collab/cmd/repositories"
 	"go-collab/cmd/session"
@@ -13,12 +13,12 @@ import (
 
 func LoginAkun(c echo.Context) error {
 	loginData := struct {
-		Email    string `json:"email"`
-		Password string `json:"password"`
+		Identifier string `json:"identifier"`
+		Password   string `json:"password"`
 	}{}
 	c.Bind(&loginData)
 
-	user, err := repositories.GetUserByEmail(loginData.Email)
+	user, err := repositories.GetUserByEmailOrUsername(loginData.Identifier)
 	if err != nil {
 		return c.JSON(http.StatusUnauthorized, "Invalid email or password")
 	}

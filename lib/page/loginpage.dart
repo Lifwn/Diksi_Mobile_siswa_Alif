@@ -4,23 +4,23 @@ import 'package:http/http.dart' as http;
 import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:first_app/page/register.dart';
 
-class loginpage extends StatefulWidget {
-  const loginpage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<loginpage> createState() => _loginpageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _loginpageState extends State<loginpage> {
-  TextEditingController emailController = TextEditingController();
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController identifierController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   void loginUser() async {
-    String email = emailController.text;
+    String identifier = identifierController.text;
     String password = passwordController.text;
 
     Map<String, dynamic> loginData = {
-      "email": email,
+      "identifier": identifier,
       "password": password,
     };
 
@@ -28,7 +28,7 @@ class _loginpageState extends State<loginpage> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:9000/login'), // Replace with your backend URL
+        Uri.parse('http://localhost:9000/login'), // Ganti dengan URL backend Anda
         headers: {
           "Content-Type": "application/json",
         },
@@ -36,21 +36,21 @@ class _loginpageState extends State<loginpage> {
       );
 
       if (response.statusCode == 200) {
-        print("Login successful");
+        print("Login berhasil");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => bottomnavbar()),
+          MaterialPageRoute(builder: (context) => BottomNavBar()),
         );
       } else {
-        print("Login failed: ${response.body}");
+        print("Login gagal: ${response.body}");
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Login failed')),
+          SnackBar(content: Text('Login gagal')),
         );
       }
     } catch (error) {
       print("Error: $error");
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('An error occurred')),
+        SnackBar(content: Text('Terjadi kesalahan')),
       );
     }
   }
@@ -89,7 +89,7 @@ class _loginpageState extends State<loginpage> {
                   ),
                 ],
               ),
-            ), //text Login
+            ), // Text "Login"
             Container(
               margin: const EdgeInsets.only(left: 50, top: 20, right: 50),
               child: Column(
@@ -103,7 +103,7 @@ class _loginpageState extends State<loginpage> {
                         fontWeight: FontWeight.w500),
                   ),
                   TextField(
-                    controller: emailController,
+                    controller: identifierController,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: "johndoe@gmail.com",
@@ -121,7 +121,7 @@ class _loginpageState extends State<loginpage> {
                   ),
                 ],
               ),
-            ), //email
+            ), // Field Email/Username
             Container(
               margin: const EdgeInsets.only(left: 50, top: 20, right: 50),
               child: Column(
@@ -154,7 +154,7 @@ class _loginpageState extends State<loginpage> {
                   ),
                 ],
               ),
-            ), //password
+            ), // Field Password
             Container(
               margin: const EdgeInsets.only(left: 50, top: 50, right: 50),
               child: Column(
@@ -176,7 +176,7 @@ class _loginpageState extends State<loginpage> {
                   ),
                 ],
               ),
-            ), //login Button
+            ), // Button "Log in"
             Container(
               margin: const EdgeInsets.only(left: 50, top: 10, right: 50),
               child: Row(
