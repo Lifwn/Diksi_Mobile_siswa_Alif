@@ -5,6 +5,7 @@ import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class sidebar extends StatelessWidget {
   const sidebar({super.key});
@@ -157,20 +158,19 @@ class sidebar extends StatelessWidget {
                     ]),
                   ),
                 ),
-              InkWell(
-                onTap: () async {
-                  SharedPreferences prefs =
-                      await SharedPreferences.getInstance();
-                  prefs.remove("isLoggedIn"); // Hapus status login
+                InkWell(
+                  onTap: () async {
+                    SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                    prefs.remove("isLoggedIn"); // Hapus status login
 
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => loginpage()),
-                  );
-                },
-                child: Container(
-                  child: Row(
-                    children: [
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => loginpage()),
+                    );
+                  },
+                  child: Container(
+                    child: Row(children: [
                       Container(
                         margin: EdgeInsets.fromLTRB(16, 200, 16, 200),
                         child: Icon(Icons.logout),
@@ -181,7 +181,8 @@ class sidebar extends StatelessWidget {
                           style: TextStyle(
                             color: Color(0xff292929),
                             fontWeight: FontWeight.w400,
-                            fontSize: 14, ),
+                            fontSize: 14,
+                          ),
                         ),
                       )
                     ]),

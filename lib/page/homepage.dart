@@ -1,7 +1,9 @@
+import 'dart:convert';
+
 import 'package:first_app/page/biologi.dart';
 import 'package:first_app/page/english.dart';
 import 'package:first_app/page/jadwalkbm.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:first_app/widget/link.dart';
 import 'package:first_app/widget/mapelhome.dart';
 import 'package:flutter/material.dart';
@@ -27,19 +29,20 @@ class homepageState extends State<homepage> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   String username = '';
 
-    @override
+  @override
   void initState() {
     super.initState();
     fetchUsername();
   }
 
   Future<void> fetchUsername() async {
-    final response = await http.get(Uri.parse('http://localhost:9000/username'));
+    final response =
+        await http.get(Uri.parse('http://localhost:9000/username'));
 
     if (response.statusCode == 200) {
       final responseData = json.decode(response.body);
       setState(() {
-        username = responseData['username']; 
+        username = responseData['username'];
       });
     }
   }
@@ -64,26 +67,26 @@ class homepageState extends State<homepage> {
                     // color: Colors.amber,
                     ),
               ),
-      Container(
-        //container judul
-        margin: EdgeInsets.only(left: 30, right: 30, top: 30),
-        child: Column(
-          //column judul
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              child: Text('Selamat Pagi,',
-                  style: TextStyle(
-                    fontSize: 14,
-                  )),
-            ),
-            Container(
-                margin: EdgeInsets.only(top: 1),
-                child: Text(
-                  username, // Display the fetched username here
-                  style: TextStyle(
-                      fontSize: 24, fontWeight: FontWeight.bold),
+              Container(
+                //container judul
+                margin: EdgeInsets.only(left: 30, right: 30, top: 30),
+                child: Column(
+                    //column judul
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        child: Text('Selamat Pagi,',
+                            style: TextStyle(
+                              fontSize: 14,
+                            )),
+                      ),
+                      Container(
+                          margin: EdgeInsets.only(top: 1),
+                          child: Text(
+                            username, // Display the fetched username here
+                            style: TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.bold),
                           )),
                       Container(
                           margin: EdgeInsets.only(top: 12),
