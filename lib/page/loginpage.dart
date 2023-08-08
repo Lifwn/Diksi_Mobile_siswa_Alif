@@ -4,16 +4,31 @@ import 'package:http/http.dart' as http;
 import 'package:first_app/widget/bottomnavbar.dart';
 import 'package:first_app/page/register.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class loginpage extends StatefulWidget {
+  const loginpage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<loginpage> createState() => _loginpageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _loginpageState extends State<loginpage> {
+  final _formKey = GlobalKey<FormState>();
   TextEditingController identifierController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  String? UsernameEmailValidation(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Field ini harus diisi';
+    }
+    return null;
+  }
+
+  String? passwordValidation(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Field ini harus diisi';
+    }
+    return null;
+  }
 
   void loginUser() async {
     String identifier = identifierController.text;
@@ -28,7 +43,8 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:9000/login'), // Ganti dengan URL backend Anda
+        Uri.parse(
+            'http://localhost:9000/login'), // Ganti dengan URL backend Anda
         headers: {
           "Content-Type": "application/json",
         },
@@ -39,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
         print("Login berhasil");
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => BottomNavBar()),
+          MaterialPageRoute(builder: (context) => bottomnavbar()),
         );
       } else {
         print("Login gagal: ${response.body}");
@@ -59,148 +75,159 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff646FD4),
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 230,
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 50),
-              child: Image.asset('assets/logo.png'),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 50, right: 20),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Login',
-                    style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700),
-                  ),
-                  Text(
-                    'Masuk ke dalam akun Diksi mu',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.w400),
-                  ),
-                ],
-              ),
-            ), // Text "Login"
-            Container(
-              margin: const EdgeInsets.only(left: 50, top: 20, right: 50),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'E-mail/Username',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  TextField(
-                    controller: identifierController,
-                    style: TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText: "johndoe@gmail.com",
-                      hintStyle: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white.withOpacity(0.5),
-                        fontWeight: FontWeight.w500,
+      body: SingleChildScrollView(
+        child: Container(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 230,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 50),
+                  child: Image.asset('assets/logo.png'),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 50, right: 20),
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Login',
+                        style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700),
                       ),
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.25),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
-                  ),
-                ],
-              ),
-            ), // Field Email/Username
-            Container(
-              margin: const EdgeInsets.only(left: 50, top: 20, right: 50),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Password',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  TextField(
-                    controller: passwordController,
-                    obscureText: true,
-                    style: TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText: "Password",
-                      hintStyle: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white.withOpacity(0.5),
-                        fontWeight: FontWeight.w500,
+                      Text(
+                        'Masuk ke dalam akun Diksi mu',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w400),
                       ),
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.25),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ), // Field Password
-            Container(
-              margin: const EdgeInsets.only(left: 50, top: 50, right: 50),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        padding: EdgeInsets.only(top: 15.0, bottom: 15.0)),
-                    onPressed: loginUser,
-                    child: Text(
-                      'Log in',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff646FD4),
-                          backgroundColor: Colors.white),
-                    ),
+                ), // Text "Login"
+                Container(
+                  margin: const EdgeInsets.only(left: 50, top: 20, right: 50),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'E-mail/Username',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      TextFormField(
+                        controller: identifierController,
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          hintText: "johndoe@gmail.com",
+                          hintStyle: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white.withOpacity(0.5),
+                            fontWeight: FontWeight.w500,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.25),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
+                        validator: UsernameEmailValidation,
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ), // Button "Log in"
-            Container(
-              margin: const EdgeInsets.only(left: 50, top: 10, right: 50),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Belum Memiliki Akun?"),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Register()),
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.only(
-                          top: 0, bottom: 0, left: 3, right: 0),
-                    ),
-                    child: Text('Daftar Sekarang'),
+                ), // Field Email/Username
+                Container(
+                  margin: const EdgeInsets.only(left: 50, top: 20, right: 50),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Password',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      TextFormField(
+                        controller: passwordController,
+                        obscureText: true,
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          hintText: "Password",
+                          hintStyle: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white.withOpacity(0.5),
+                            fontWeight: FontWeight.w500,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.25),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
+                        validator: passwordValidation,
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ), // Field Password
+                Container(
+                  margin: const EdgeInsets.only(left: 50, top: 50, right: 50),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            padding: EdgeInsets.only(top: 15.0, bottom: 15.0)),
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            loginUser();
+                          }
+                        },
+                        child: Text(
+                          'Log in',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xff646FD4),
+                              backgroundColor: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ), // Button "Log in"
+                Container(
+                  margin: const EdgeInsets.only(left: 50, top: 10, right: 50),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Belum Memiliki Akun?"),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Register()),
+                          );
+                        },
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.only(
+                              top: 0, bottom: 0, left: 3, right: 0),
+                        ),
+                        child: Text('Daftar Sekarang'),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
