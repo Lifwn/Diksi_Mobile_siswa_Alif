@@ -12,6 +12,8 @@ func main() {
 	e := echo.New()
 	storage.InitDB()
 
+	e.GET("/logout", handlers.LogoutAkun)
+
 	e.POST("/register", handlers.CreateAkun)
 	e.POST("/login", handlers.LoginAkun)
 	e.Use(middleware.LogRequest)
