@@ -50,12 +50,14 @@ class _loginpageState extends State<loginpage> {
         },
         body: jsonData,
       );
-
       if (response.statusCode == 200) {
         print("Login berhasil");
+        Map<String, dynamic> responseData = json.decode(response.body);
+        
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setBool("isLoggedIn", true);
-        prefs.setString("username", user["username"]); // Simpan username ke SharedPreferences
+        prefs.setString("username", responseData['username']); // Save the username to SharedPreferences
+        
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => bottomnavbar()),
