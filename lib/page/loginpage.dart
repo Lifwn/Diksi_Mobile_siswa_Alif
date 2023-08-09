@@ -58,7 +58,7 @@ class _loginpageState extends State<loginpage> {
         prefs.setBool("isLoggedIn", true);
         prefs.setString("username", responseData['username']); // Save the username to SharedPreferences
         
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => bottomnavbar()),
         );
