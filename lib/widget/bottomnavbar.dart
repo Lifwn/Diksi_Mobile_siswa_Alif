@@ -26,11 +26,7 @@ class _bottomnavbarState extends State<bottomnavbar> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isLoggedIn = prefs.getBool("isLoggedIn") ?? false;
 
-    if (isLoggedIn) {
-      setState(() {
-        index = 0;
-      });
-    } else {
+    if (!isLoggedIn) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => loginpage()),
