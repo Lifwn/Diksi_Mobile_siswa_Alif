@@ -12,6 +12,7 @@ import 'package:first_app/widget/sidebar.dart';
 import 'package:first_app/widget/pagec1.dart';
 
 import 'package:first_app/page/matematika.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widget/template_box.dart';
@@ -26,6 +27,7 @@ class homepage extends StatefulWidget {
 }
 
 class homepageState extends State<homepage> {
+  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   String username = 'Alip Slebew';
 
   @override
@@ -97,17 +99,19 @@ class homepageState extends State<homepage> {
                     //column judul
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text('Selamat Pagi,',
-                        style: TextStyle(fontSize: 14),
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        child: Text(
+                          'Selamat Pagi,',
+                          style: TextStyle(fontSize: 14),
+                        ),
                       ),
-                    ),
                       Container(
                         margin: EdgeInsets.only(top: 1),
                         child: Text(
                           username,
-                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Container(
