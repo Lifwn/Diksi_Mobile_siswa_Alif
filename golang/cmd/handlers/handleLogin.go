@@ -20,7 +20,7 @@ func LoginAkun(c echo.Context) error {
 
 	user, err := repositories.GetUserByEmailOrUsername(loginData.Identifier)
 	if err != nil {
-		return c.JSON(http.StatusUnauthorized, "Invalid email/username or password")
+		return c.JSON(http.StatusUnauthorized, "Invalid")
 	}
 
 	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(loginData.Password))
@@ -30,5 +30,5 @@ func LoginAkun(c echo.Context) error {
 
 	session.SetSession(c, "user", strconv.Itoa(user.Id))
 	fmt.Println("Login Berhasil")
-	return c.JSON(http.StatusOK, "Login successful")
+	return c.JSON(http.StatusOK, map[string]interface{}{"login":"Login successful"})
 }
