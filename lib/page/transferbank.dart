@@ -1,4 +1,5 @@
 import 'package:first_app/widget/bankcard.dart';
+import 'package:first_app/widget/successnotif.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -11,6 +12,15 @@ class transferbank extends StatefulWidget {
 }
 
 class _transferbankState extends State<transferbank> {
+  void _showAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return notification();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,9 +134,11 @@ class _transferbankState extends State<transferbank> {
         width: 31,
         height: 52,
         margin: EdgeInsets.fromLTRB(24, 0, 24, 60),
-        child: Center(
-          child: InkWell(
-            onTap: () {},
+        child: InkWell(
+          onTap: () {
+            _showAlertDialog(context);
+          },
+          child: Center(
             child: Text(
               "Lanjut Pembayaran",
               style: TextStyle(

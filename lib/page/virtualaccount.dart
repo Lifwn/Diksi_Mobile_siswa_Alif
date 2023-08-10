@@ -1,4 +1,5 @@
 import 'package:first_app/widget/bankcard.dart';
+import 'package:first_app/widget/successnotif.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -11,6 +12,15 @@ class virtualaccount extends StatefulWidget {
 }
 
 class _virtualaccountState extends State<virtualaccount> {
+  void _showAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return notification();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,9 +135,11 @@ class _virtualaccountState extends State<virtualaccount> {
         width: 31,
         height: 52,
         margin: EdgeInsets.fromLTRB(24, 0, 24, 60),
-        child: Center(
-          child: InkWell(
-            onTap: () {},
+        child: InkWell(
+          onTap: () {
+            _showAlertDialog(context);
+          },
+          child: Center(
             child: Text(
               "Lanjut Pembayaran",
               style: TextStyle(
@@ -138,6 +150,29 @@ class _virtualaccountState extends State<virtualaccount> {
           ),
         ),
       ),
+      // bottomNavigationBar: Container(
+      //   decoration: BoxDecoration(
+      //     borderRadius: BorderRadius.circular(8),
+      //     color: Color(0xFF5864D3),
+      //   ),
+      //   width: 31,
+      //   height: 52,
+      //   margin: EdgeInsets.fromLTRB(24, 0, 24, 60),
+      //   child: Center(
+      //     child: InkWell(
+      //       onTap: () {
+      //         _showAlertDialog(context);
+      //       },
+      //       child: Text(
+      //         "Lanjut Pembayaran",
+      //         style: TextStyle(
+      //             fontWeight: FontWeight.w700,
+      //             fontSize: 16,
+      //             color: Colors.white),
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
