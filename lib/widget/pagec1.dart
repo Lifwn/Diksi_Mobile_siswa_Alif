@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
-class pagec1 extends StatelessWidget {
-  const pagec1({super.key});
+class pagec extends StatelessWidget {
+  pagec({
+    super.key,
+    this.imgpath = "",
+  });
+
+  String imgpath;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +17,7 @@ class pagec1 extends StatelessWidget {
         child: Container(
           color: Colors.red,
           child: Image.asset(
-            "assets/mading.png",
+            imgpath,
             fit: BoxFit.fill,
             height: 150,
             width: 300,
@@ -20,18 +25,5 @@ class pagec1 extends StatelessWidget {
         ),
       ),
     );
-
-    // ClipRRect(
-    //   child: Container(
-    //     child: Image.asset(
-    //       'assets/mading.png',
-    //       // fit: BoxFit.cover,
-    //     ),
-    //   ),
-
-    // borderRadius: BorderRadius.circular(80),
-    // child: Image.asset(
-    //   'assets/mading.png',
-    // ),)
   }
 }

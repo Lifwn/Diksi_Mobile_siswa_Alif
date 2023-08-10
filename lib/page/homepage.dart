@@ -154,10 +154,18 @@ class homepageState extends State<homepage> {
                             child: PageView(
                               controller: _controller,
                               children: [
-                                pagec1(),
-                                pagec1(),
-                                pagec1(),
-                                pagec1(),
+                                pagec(
+                                  imgpath: "assets/mading.png",
+                                ),
+                                pagec(
+                                  imgpath: "assets/mading.png",
+                                ),
+                                pagec(
+                                  imgpath: "assets/mading.png",
+                                ),
+                                pagec(
+                                  imgpath: "assets/mading.png",
+                                ),
                               ],
                             ),
                           ),
