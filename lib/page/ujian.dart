@@ -4,6 +4,7 @@ import 'package:first_app/page/matematikaujian.dart';
 import 'package:first_app/widget/sidebar.dart';
 import 'package:first_app/widget/mapelujian.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ujian extends StatefulWidget {
   const ujian({super.key});
@@ -14,13 +15,31 @@ class ujian extends StatefulWidget {
 
 class ujianState extends State<ujian> {
   GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
+    String username = 'Alip Slebew';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchUsername();
+  }
+
+  Future<void> fetchUsername() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedUsername = prefs.getString("username");
+
+    if (savedUsername != null) {
+      setState(() {
+        username = savedUsername;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _globalKey,
       // appBar: AppBar(),
-      drawer: sidebar(),
+      drawer: sidebar(username: username),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
           child: Container(

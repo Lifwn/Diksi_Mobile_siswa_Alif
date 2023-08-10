@@ -52,7 +52,7 @@ class homepageState extends State<homepage> {
     return Scaffold(
       key: _globalKey,
       // appBar: AppBar(),
-      drawer: sidebar(),
+      drawer: sidebar(username: username),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
           child: Container(

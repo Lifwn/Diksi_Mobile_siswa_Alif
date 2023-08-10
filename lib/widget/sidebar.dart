@@ -8,7 +8,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class sidebar extends StatelessWidget {
-  const sidebar({super.key});
+  final String username;
+
+  const sidebar({Key? key, required this.username}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class sidebar extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: 16, left: 16),
                   child: Text(
-                    'John Doe',
+                    username,  // Use the username parameter here
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                   ),
                 ),
