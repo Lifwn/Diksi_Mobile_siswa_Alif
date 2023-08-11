@@ -172,19 +172,19 @@ class homepageState extends State<homepage> {
                               children: [
                                 pagec(
                                   imgpath:
-                                      "http://12.0.0.1:9000/images/latest/0",
+                                      "http://127.0.0.1:9000/images/latest/0",
                                 ),
                                 pagec(
                                   imgpath:
-                                      "http://12.0.0.1:9000/images/latest/1",
+                                      "http://127.0.0.1:9000/images/latest/1",
                                 ),
                                 pagec(
                                   imgpath:
-                                      "http://12.0.0.1:9000/images/latest/2",
+                                      "http://127.0.0.1:9000/images/latest/2",
                                 ),
                                 pagec(
                                   imgpath:
-                                      "http://12.0.0.1:9000/images/latest/3",
+                                      "http://127.0.0.1:9000/images/latest/3",
                                 ),
                               ],
                             ),
