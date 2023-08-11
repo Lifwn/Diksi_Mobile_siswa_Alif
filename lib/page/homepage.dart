@@ -4,6 +4,7 @@ import 'package:first_app/page/biologi.dart';
 import 'package:first_app/page/english.dart';
 import 'package:first_app/page/jadwalkbm.dart';
 import 'package:http/http.dart' as http;
+
 import 'package:first_app/widget/link.dart';
 import 'package:first_app/widget/mapelhome.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ import 'package:first_app/widget/pagec1.dart';
 import 'package:first_app/page/matematika.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:intl/intl.dart';
 
 import '../widget/template_box.dart';
 
@@ -44,6 +46,22 @@ class homepageState extends State<homepage> {
       setState(() {
         username = savedUsername;
       });
+    }
+  }
+
+    String getGreeting() {
+    var now = DateTime.now();
+    var formatter = DateFormat('HH.mm');
+    var currentTime = double.parse(formatter.format(now));
+
+    if (currentTime >= 5.50 && currentTime <= 9.59) {
+      return 'Selamat Pagi,';
+    } else if (currentTime >= 10.00 && currentTime <= 14.59) {
+      return 'Selamat Siang,';
+    } else if (currentTime >= 15.00 && currentTime <= 17.59) {
+      return 'Selamat Sore,';
+    } else {
+      return 'Selamat Malam,';
     }
   }
 
@@ -93,19 +111,17 @@ class homepageState extends State<homepage> {
                 ),
               ),
               Container(
-                //container judul
                 margin: EdgeInsets.only(left: 30, right: 30, top: 30),
                 child: Column(
-                    //column judul
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 10),
-                        child: Text(
-                          'Selamat Pagi,',
-                          style: TextStyle(fontSize: 14),
-                        ),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Text(
+                        getGreeting(), // Menggunakan fungsi getGreeting() di sini
+                        style: TextStyle(fontSize: 14),
                       ),
+                    ),
                       Container(
                         margin: EdgeInsets.only(top: 1),
                         child: Text(
@@ -156,19 +172,19 @@ class homepageState extends State<homepage> {
                               children: [
                                 pagec(
                                   imgpath:
-                                      "http://127.0.0.1:9000/images/latest/0",
+                                      "http://12.0.0.1:9000/images/latest/0",
                                 ),
                                 pagec(
                                   imgpath:
-                                      "http://127.0.0.1:9000/images/latest/1",
+                                      "http://12.0.0.1:9000/images/latest/1",
                                 ),
                                 pagec(
                                   imgpath:
-                                      "http://127.0.0.1:9000/images/latest/2",
+                                      "http://12.0.0.1:9000/images/latest/2",
                                 ),
                                 pagec(
                                   imgpath:
-                                      "http://127.0.0.1:9000/images/latest/3",
+                                      "http://12.0.0.1:9000/images/latest/3",
                                 ),
                               ],
                             ),
