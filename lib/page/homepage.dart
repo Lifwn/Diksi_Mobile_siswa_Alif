@@ -49,7 +49,7 @@ class homepageState extends State<homepage> {
     }
   }
 
-    String getGreeting() {
+  String getGreeting() {
     var now = DateTime.now();
     var formatter = DateFormat('HH.mm');
     var currentTime = double.parse(formatter.format(now));
@@ -113,15 +113,15 @@ class homepageState extends State<homepage> {
               Container(
                 margin: EdgeInsets.only(left: 30, right: 30, top: 30),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text(
-                        getGreeting(), // Menggunakan fungsi getGreeting() di sini
-                        style: TextStyle(fontSize: 14),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 10),
+                        child: Text(
+                          getGreeting(), // Menggunakan fungsi getGreeting() di sini
+                          style: TextStyle(fontSize: 14),
+                        ),
                       ),
-                    ),
                       Container(
                         margin: EdgeInsets.only(top: 1),
                         child: Text(
@@ -171,8 +171,7 @@ class homepageState extends State<homepage> {
                               controller: _controller,
                               children: [
                                 pagec(
-                                  imgpath:
-                                      "http://127.0.0.1:9000/images/latest/0",
+                                  imgpath: "assets/mading.png",
                                 ),
                                 pagec(
                                   imgpath:

@@ -35,7 +35,7 @@ class sidebar extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: 16, left: 16),
                   child: Text(
-                    username,  // Use the username parameter here
+                    username, // Use the username parameter here
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                   ),
                 ),

@@ -53,9 +53,106 @@ class notification extends StatelessWidget {
                 onPressed: () {
                   showModalBottomSheet(
                       context: context,
+                      isScrollControlled: true,
                       builder: (BuildContext context) {
-                        return Scaffold(
-                          backgroundColor: Colors.blue,
+                        return FractionallySizedBox(
+                          heightFactor: 0.96,
+                          child: Container(
+                            color: Colors.white,
+                            child: Center(
+                              child: Column(children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8)),
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                Container(
+                                    child: SvgPicture.asset(
+                                        "assets/vector/check.svg")),
+                                Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  child: Text(
+                                    "Invoice Pembayaran",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 22,
+                                        color: Colors.black),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Nama Transfer",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14,
+                                            color: Color(0xff292D32)),
+                                      ),
+                                      Text(
+                                        "SPP Bulanan",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 14,
+                                            color: Color(0xff292D32)),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Tanggal",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14,
+                                            color: Color(0xff292D32)),
+                                      ),
+                                      Text(
+                                        "12 Jul 2022 | 14:23:12 WIB",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 14,
+                                            color: Color(0xff292D32)),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Metode",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14,
+                                            color: Color(0xff292D32)),
+                                      ),
+                                      Text(
+                                        "BRIVA",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 14,
+                                            color: Colors.black),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ]),
+                            ),
+                          ),
                         );
                       });
                 },
